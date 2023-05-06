@@ -1,4 +1,4 @@
-// const client = await MongoClient.connect("mongodb+srv://pullhorizon:admin1234@cluster0.u8rrkhh.mongodb.net/?retryWrites=true&w=majority", {
+// const client = await MongoClient.connect("url", {
 //     useNewUrlParser: true,
 //   });
 //   const db = client.db("uppernight");
