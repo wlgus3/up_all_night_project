@@ -7,11 +7,5 @@ export default async function Home() {
   const result = await db.collection("community").find().toArray();
   console.log(result);
 
-  return (
-    <div>
-      메인
-      <div> {result[0]["title"]}</div>
-      <div> {result[0]["content"]}</div>
-    </div>
-  );
+  return <div>카페 지도페이지.</div>;
 }

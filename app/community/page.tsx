@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div>
-      메인
+      커뮤니티 페이지
       <div> {result[0]["title"]}</div>
       <div> {result[0]["content"]}</div>
     </div>
