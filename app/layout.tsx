@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,7 +12,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       {/* <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%REACT_APP_KAKAO_API_KEY%&libraries=services"></script> */}
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="header">Upper Night</div>
+        <div className="top_nav">
+          <Link href={"/"}>{` 24H cafe  `}</Link>
+          <Link href={"/community"}>Community</Link>
+        </div>
+
+        {children}
+      </body>
     </html>
   );
 }
+
+// const Header = styled.div`
+//   font-size: 30px;
+// `; //! styled-component 사용 보류 -> 나중에 리팩토링으로 진행
