@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <div className="header">Upper Night</div>
         <div className="top_nav">
-          <Link href={"/"}>{` 24H cafe  `}</Link>
+          <Link href={"/"}> 24H cafe </Link>
           <Link href={"/community"}>Community</Link>
         </div>
 
