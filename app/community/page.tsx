@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/database.js";
-
-export default async function Home() {
+// ‘use client’
+export default async function Community() {
   const client = await connectDB;
   const db = client.db("uppernight");
   const result = await db.collection("community").find().toArray();
@@ -10,8 +10,21 @@ export default async function Home() {
   return (
     <div>
       커뮤니티 페이지
-      <div> {result[0]["title"]}</div>
-      <div> {result[0]["content"]}</div>
+      <div> 오늘의 노력에 대해서 자랑해주세요!</div>
+      <div>
+        {result.map((el, index) => {
+          return <Content element={el} />;
+        })}
+      </div>
+    </div>
+  );
+}
+
+function Content(props) {
+  return (
+    <div>
+      <div>{props.element.title}</div>
+      <div>{props.element.content}</div>
     </div>
   );
 }

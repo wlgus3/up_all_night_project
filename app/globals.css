@@ -3,7 +3,7 @@ body {
   /* justify-content: space-around; */
   margin: auto;
   flex-direction: column;
-  max-width: 1300px;
+  max-width: 1400px;
   padding: 0 15px;
 }
 .header {
@@ -12,7 +12,7 @@ body {
   font-size: 6vh;
   font-weight: bold;
 }
-
+/*! top nav link 호버시 동적 언더라인 css */
 .top_nav {
   display: flex;
   justify-content: space-around;
@@ -31,7 +31,7 @@ body {
 .top_nav a::after {
   display: block;
   content: "";
-  border-bottom: solid 3px #fcc42b;
+  border-bottom: solid 3px #ffb520;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
