@@ -1,6 +1,7 @@
 import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/database.js";
 import styles from "./page.module.css";
+import Link from "next/link";
 `use client`;
 export default async function Community() {
   const client = await connectDB;
@@ -25,7 +26,10 @@ function Content(props) {
   return (
     <div className="post">
       <div>
-        <div>{props.element.title}</div>
+        <Link href={`community/detail/${props.element._id}`}>
+          <div>{props.element.title}</div>
+        </Link>
+
         <div>{props.element.content}</div>
         <div>추천: {props.element.score}</div>
       </div>
