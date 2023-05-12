@@ -11,9 +11,10 @@ export default async function CommunityDetail(props) {
 
   return (
     <div>
+      <h2>노력 자랑</h2>
       <div>
         <div className="post_info">
-          <h2>{result.title} </h2>
+          <h3>{result.title} </h3>
           <div>
             <span>작성자</span>
             <span>작성일시 </span>
