@@ -11,7 +11,8 @@ export default async function CommunityDetail(props) {
 
   return (
     <div>
-      <h2>노력 자랑</h2>
+      <h2>노력 자랑 게시판 </h2>
+      <h3>게시글 상세 </h3>
       <div>
         <div className="post_info">
           <h3>{result.title} </h3>

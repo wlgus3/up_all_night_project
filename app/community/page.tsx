@@ -12,7 +12,7 @@ export default async function Community() {
 
   return (
     <div>
-      <h2>노력 자랑 페이지</h2>
+      <h2>노력 자랑 게시판</h2>
       <div> 오늘의 노력에 대해서 자랑해주세요!</div>
       <div className="community">
         {result.map((el: string, index: number) => {
