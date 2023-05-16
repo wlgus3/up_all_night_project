@@ -12,6 +12,9 @@ export default async function CommunityDetail(props) {
   return (
     <div>
       <h2>커뮤니티 글쓰기</h2>
+      <form action="/api/testserver" method="POST">
+        <button type="submit">완료</button>
+      </form>
     </div>
   );
 }
