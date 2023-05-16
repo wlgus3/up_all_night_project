@@ -2,5 +2,11 @@
 
 export default function handler(req, res) {
   // console.log("서버 요청 테스트 중 ");
-  res.status(200).json("처리완료함");
+  if (req.method == "GET") {
+    res.status(200).json({ name: "GET완료" });
+  }
+  if (req.method == "POST") {
+    res.status(200).json({ name: "POST완료" });
+  }
+  // res.status(200).json("처리완료함");
 }
