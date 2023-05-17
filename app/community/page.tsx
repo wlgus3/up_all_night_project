@@ -2,6 +2,8 @@ import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/database.js";
 import styles from "./page.module.css";
 import Link from "next/link";
+import Image from "next/image";
+
 // import { useRouter } from "next/router";
 
 export default async function Community() {
@@ -14,6 +16,11 @@ export default async function Community() {
     <div>
       <h2>노력 자랑 게시판</h2>
       <div> 오늘의 노력에 대해서 자랑해주세요!</div>
+      <div className="write_button">
+        <Link href="/community/write">
+          <button>글 작성하기 </button>
+        </Link>
+      </div>
       <div className="community">
         {result.map((el: string, index: number) => {
           return <Content element={el} key={index} />;
@@ -38,11 +45,11 @@ function Content(props) {
         >
           {props.element.title}
         </div> */}
-
+        <div>작성시간 : {String(props.element.date)}</div>
         <div>{props.element.content}</div>
         <div>추천: {props.element.score}</div>
       </div>
-      <div className="post_image">image</div>
+      <div className="post_image">{/* <Image alt="image" src={props.element.image} height="10" width="10"></Image> */}</div>
     </div>
   );
 }
