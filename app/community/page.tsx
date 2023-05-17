@@ -31,6 +31,8 @@ export default async function Community() {
 }
 function Content(props) {
   // let router = useRouter();
+  let timeShortVer = String(props.element.date).split("GMT")[0];
+  //Wed May 17 2023 17:21:37 GMT+0900 (대한민국 표준시) ->너무 길어서 GMT 이후로 버림
 
   return (
     <div className="post">
@@ -45,7 +47,7 @@ function Content(props) {
         >
           {props.element.title}
         </div> */}
-        <div>작성시간 : {String(props.element.date)}</div>
+        <div>작성시간: {timeShortVer}</div>
         <div>{props.element.content}</div>
         <div>추천: {props.element.score}</div>
       </div>

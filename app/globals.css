@@ -70,7 +70,7 @@ body {
   border-top: rgb(255, 191, 73) solid 1px;
 }
 
-/* 커뮤니티  */
+/*! 커뮤니티  */
 .community {
   display: flex;
   justify-content: flex-start;
@@ -78,16 +78,19 @@ body {
   padding: 1vh 0;
   flex-wrap: wrap;
 }
+.post_info {
+  margin-bottom: 2vw;
+}
 .post {
   display: flex;
   background-color: rgb(255, 243, 208);
-  width: 30%;
+  width: 46%;
   border: solid 1px black;
   padding: 2px 1vw;
   flex-direction: row;
   justify-content: space-between;
   border-radius: 5px;
-  margin-right: 0.5vw;
+  margin-right: 1vw;
   margin-bottom: 2vw;
 }
 .post_image {
@@ -96,18 +99,40 @@ body {
   background-color: rgb(249, 231, 91);
   margin: 0.5vw 0.5vw;
 }
-.p-20 {
+
+/* ! 글쓰기 , 글 수정  */
+.post_write {
   padding: 20px;
 }
 input {
   box-sizing: border-box;
   padding: 10px;
   display: block;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 button {
-  padding: 10px 15px;
+  padding: 1vw 3vw;
   background: lightgray;
   border: none;
   border-radius: 5px;
+}
+button:hover {
+  font-weight: 500;
+  transition: 0.5s;
+  background: rgba(252, 197, 88, 0.762);
+}
+.right {
+  margin-right: 2vw;
+  float: right;
+}
+.title_box {
+  width: 90%;
+}
+.content_box {
+  width: 90%;
+  height: 50vh;
+  box-sizing: border-box;
+  padding: 10px;
+  display: block;
+  margin: 10px 0;
 }
