@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   // const result = await db.collection("community").find().toArray();
   let today = new Date(); //!날짜 보내기
 
-  if (req.method == "PUT") {
+  if (req.method == "POST") {
     if (req.body.title == "") {
       return res.status(500).json("제목 미작성");
     } else if (req.body.content == "") {

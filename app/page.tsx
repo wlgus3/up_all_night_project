@@ -5,7 +5,7 @@ export default async function Home() {
   const client = await connectDB;
   const db = client.db("uppernight");
   const result = await db.collection("community").find().toArray();
-  console.log(result);
+  // console.log(result);
 
   return (
     <div>
