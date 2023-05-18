@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { connectDB } from "@/util/database.js";
 
-export default async function CommunityDetail(props) {
+export default async function CommunityDetail() {
   // const client = await connectDB;
   // const db = client.db("uppernight");
   // const result = await db.collection("community").findOne({ _id: new ObjectId(props.params.id) });
@@ -15,17 +15,17 @@ export default async function CommunityDetail(props) {
       {/* <form action="/api/list" method="POST">
         <button type="submit">완료</button>
       </form> */}
-      <div className="p-20">
+      <div className="post_write">
         <form action="/api/post/new" method="POST">
           {/* 키이름은 name ='~' , 칸 설명은 placeholder='~' */}
           <div>오늘의 노력을 간략하게 소개해주세요.</div>
           <input name="title" placeholder="제목" />
           <div>어떻게 성장할까요?</div>
 
-          <input name="content" placeholder="내용" />
+          <textarea name="content" placeholder="내용" />
           {/* <div> 연결된 노력이 있다면 선택해주세요  </div> */}
           <br />
-          <div>사진을 첨부하세요.(.jpg, .jpeg, .png 형식)</div>
+          <div>사진을 첨부하세요. (.jpg, .jpeg, .png 형식만 가능, 2MB 용량제한) </div>
           <input name="image" type="file" accept="image/jpg, image/jpeg, image/png" placeholder="사진을 첨부하세요" />
           <button type="submit">전송</button>
         </form>

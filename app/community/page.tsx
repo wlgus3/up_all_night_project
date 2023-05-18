@@ -3,6 +3,7 @@ import { connectDB } from "@/util/database.js";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import Content from "./content";
 
 // import { useRouter } from "next/router";
 
@@ -10,7 +11,7 @@ export default async function Community() {
   const client = await connectDB;
   const db = client.db("uppernight");
   const result = await db.collection("community").find().toArray();
-  console.log(result);
+  // console.log(result);
 
   return (
     <div>
@@ -18,38 +19,14 @@ export default async function Community() {
       <div> 오늘의 노력에 대해서 자랑해주세요!</div>
       <div className="write_button">
         <Link href="/community/write">
-          <button>글 작성하기 </button>
+          <button>글 작성하기 ✏️ </button>
         </Link>
       </div>
       <div className="community">
         {result.map((el: string, index: number) => {
-          return <Content element={el} key={index} />;
+          return <Content element={el} key={index} result={result} />;
         })}
       </div>
-    </div>
-  );
-}
-function Content(props) {
-  // let router = useRouter();
-
-  return (
-    <div className="post">
-      <div>
-        <Link href={`community/detail/${props.element._id}`} prefetch={false}>
-          <div>{props.element.title}</div>
-        </Link>
-        {/* <div
-          onClick={() => {
-            router.push("/");
-          }}
-        >
-          {props.element.title}
-        </div> */}
-        <div>작성시간 : {String(props.element.date)}</div>
-        <div>{props.element.content}</div>
-        <div>추천: {props.element.score}</div>
-      </div>
-      <div className="post_image">{/* <Image alt="image" src={props.element.image} height="10" width="10"></Image> */}</div>
     </div>
   );
 }
