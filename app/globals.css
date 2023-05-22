@@ -9,6 +9,7 @@ body {
     font-size: 14px;
   }
 }
+
 .mobile_logo_image {
   @media screen and (min-width: 768px) {
     display: none;
@@ -26,9 +27,14 @@ body {
   font-size: 4vw;
   font-weight: bold;
   margin-top: 3px;
+
   @media screen and (max-width: 768px) {
     font-size: 27px;
   }
+}
+.header a {
+  color: black;
+  text-decoration: none;
 }
 /*! top nav link 호버시 동적 언더라인 css */
 .top_nav {
@@ -67,6 +73,7 @@ body {
   transform-origin: 0% 50%;
 }
 .page {
+  margin: 0 1vw;
   border-top: rgb(255, 191, 73) solid 1px;
 }
 

@@ -9,7 +9,7 @@ export default async function Cafe() {
 
   return (
     <div>
-      <h2>카페 지도페이지 </h2>
+      <h2>24시 카페 지도 </h2>
       <Map />
     </div>
   );
