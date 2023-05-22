@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/database.js";
-import Map from "./map";
+import Map from "../component/map";
 export default async function Cafe() {
   // const client = await connectDB;
   // const db = client.db("uppernight");
