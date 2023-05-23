@@ -20,10 +20,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Image src={logoimg} alt="logo image" height="35" width="35" className="mobile_logo_image" />
             <Image src={logoimg} alt="logo image" height="50" width="50" className="web_logo_image" />
           </span>
-          Upper Night
+          <Link href={"/"}> Upper Night </Link>
         </div>
         <div className="top_nav">
-          <Link href={"/"}> 24H cafe </Link>
+          <Link href={"/cafemap"}> 24H cafe </Link>
           <Link href={"/community"}>Community</Link>
         </div>
         <div className="page">{children}</div>
