@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getLineAndCharacterOfPosition } from "typescript";
-
+import cafeData from "/public/total_final_data.json";
 // import location from "./location";
 
 function Map() {
@@ -11,8 +11,9 @@ function Map() {
   const [data, setData] = useState();
   const [Lng, setLng] = useState();
   const [Lat, setLat] = useState();
-
+  console.log(cafeData[2]);
   function location() {
+    //!브라우저에서 위치 받아오는 함수
     const { geolocation } = navigator;
 
     geolocation.getCurrentPosition(
@@ -37,8 +38,10 @@ function Map() {
     );
     return { Lat, Lng };
   }
+
   const drawingMap = async () => {
     //!지도로딩 시작
+    //! DOM을 여기서 직접 만져서 <head/>안에 <script/>넣어줌
     // DOM을 이용하여 script 태그를 만들어주자.
     const mapScript = document.createElement("script");
     // script.async = true 라면,
@@ -61,7 +64,20 @@ function Map() {
 
           level: 5, // 지도의 확대 레벨
         };
-        new window.kakao.maps.Map(mapContainer, mapOption);
+        const map = new window.kakao.maps.Map(mapContainer, mapOption);
+        //!마커 테스트 성공 -> 광화문 찍어봄
+        //?마커가 표시 될 위치
+        let markerPosition = new kakao.maps.LatLng(37.570892, 126.97725);
+
+        //? 마커를 생성
+        let marker = new kakao.maps.Marker({
+          position: markerPosition,
+        });
+
+        //? 마커를 지도 위에 표시
+        marker.setMap(map);
+
+        //!다중 마커 테스트
       });
     };
 
