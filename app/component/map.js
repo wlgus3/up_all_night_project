@@ -25,10 +25,10 @@ function Map() {
       },
       (error) => {
         console.warn("Fail to fetch current location", error);
-        // setLat(37.570892);
-        // setLng(126.97725);
-        setLat(33.451393); //! 임시 위치 ->제주도 카카오
-        setLng(126.570738);
+        setLat(37.557461);
+        setLng(126.924772);
+        // setLat(33.451393); //! 임시 위치 ->제주도 카카오
+        // setLng(126.570738);
         // setIsLoading(false);
         console.log(Lat, Lng);
       },
@@ -64,7 +64,7 @@ function Map() {
           // center: new window.kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
           center: new window.kakao.maps.LatLng(Number(Lat), Number(Lng)), // 지도의 중심좌표
 
-          level: 3, // 지도의 확대 레벨
+          level: 5, // 지도의 확대 레벨
         };
         const map = new window.kakao.maps.Map(mapContainer, mapOption);
         //!마커 테스트 성공 -> 광화문 찍어봄
@@ -105,7 +105,7 @@ function Map() {
         var positions = [];
         for (let i = 0; i < cafeData.length; i++) {
           positions.push({
-            content: cafeData[i].place_name,
+            content: `<div style={font-size='small'}>${cafeData[i].place_name}</div><div>${cafeData[i].road_address_name}</div><div>${cafeData[i].phone}</div><a href='${cafeData[i].place_url}'>카카오지도 링크<a/>`,
             latlng: new kakao.maps.LatLng(cafeData[i].y, cafeData[i].x),
           });
         }
@@ -126,7 +126,7 @@ function Map() {
           // 이벤트 리스너로는 클로저를 만들어 등록합니다
           // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
           kakao.maps.event.addListener(marker, "mouseover", makeOverListener(map, marker, infowindow));
-          kakao.maps.event.addListener(marker, "click", makeOutListener(infowindow));
+          kakao.maps.event.addListener(marker, "click", makeOutListener(infowindow)); //! 정보창 열고 닫는 이벤트가 약간 이상함 수정요망
         }
 
         // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
