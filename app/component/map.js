@@ -25,8 +25,10 @@ function Map() {
       },
       (error) => {
         console.warn("Fail to fetch current location", error);
-        setLat(37.570892);
-        setLng(126.97725);
+        // setLat(37.570892);
+        // setLng(126.97725);
+        setLat(33.451393); //! 임시 위치 ->제주도 카카오
+        setLng(126.570738);
         // setIsLoading(false);
         console.log(Lat, Lng);
       },
@@ -62,22 +64,84 @@ function Map() {
           // center: new window.kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
           center: new window.kakao.maps.LatLng(Number(Lat), Number(Lng)), // 지도의 중심좌표
 
-          level: 5, // 지도의 확대 레벨
+          level: 3, // 지도의 확대 레벨
         };
         const map = new window.kakao.maps.Map(mapContainer, mapOption);
         //!마커 테스트 성공 -> 광화문 찍어봄
-        //?마커가 표시 될 위치
-        let markerPosition = new kakao.maps.LatLng(37.570892, 126.97725);
+        // //?마커가 표시 될 위치
+        // let markerPosition = new kakao.maps.LatLng(37.570892, 126.97725);
 
-        //? 마커를 생성
-        let marker = new kakao.maps.Marker({
-          position: markerPosition,
-        });
+        // //? 마커를 생성
+        // let marker = new kakao.maps.Marker({
+        //   position: markerPosition,
+        // });
 
-        //? 마커를 지도 위에 표시
-        marker.setMap(map);
+        // //? 마커를 지도 위에 표시
+        // marker.setMap(map);
 
         //!다중 마커 테스트
+        // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다
+
+        // var positions = [
+        //   //? 데이터 예시 -> 이 형태 맞춰서 넣어주기만 하면 됨
+        //   {
+        //     content: "<div>카카오</div><div>카카오 정보</div><a href='naver.com'>네이버로<a/>",
+        //     latlng: new kakao.maps.LatLng(33.450705, 126.570677),
+        //   },
+        //   // {
+        //   //   content: "<div>생태연못</div>",
+        //   //   latlng: new kakao.maps.LatLng(33.450936, 126.569477),
+        //   // },
+        //   // {
+        //   //   content: "<div>텃밭</div>",
+        //   //   latlng: new kakao.maps.LatLng(33.450879, 126.56994),
+        //   // },
+        //   // {
+        //   //   content: "<div>근린공원</div>",
+        //   //   latlng: new kakao.maps.LatLng(33.451393, 126.570738),
+        //   // },
+        // ];
+
+        var positions = [];
+        for (let i = 0; i < cafeData.length; i++) {
+          positions.push({
+            content: cafeData[i].place_name,
+            latlng: new kakao.maps.LatLng(cafeData[i].y, cafeData[i].x),
+          });
+        }
+
+        for (var i = 0; i < positions.length; i++) {
+          // 마커를 생성합니다
+          var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커의 위치
+          });
+
+          // 마커에 표시할 인포윈도우를 생성합니다
+          var infowindow = new kakao.maps.InfoWindow({
+            content: positions[i].content, // 인포윈도우에 표시할 내용
+          });
+
+          // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+          // 이벤트 리스너로는 클로저를 만들어 등록합니다
+          // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+          kakao.maps.event.addListener(marker, "mouseover", makeOverListener(map, marker, infowindow));
+          kakao.maps.event.addListener(marker, "click", makeOutListener(infowindow));
+        }
+
+        // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+        function makeOverListener(map, marker, infowindow) {
+          return function () {
+            infowindow.open(map, marker);
+          };
+        }
+
+        // 인포윈도우를 닫는 클로저를 만드는 함수입니다
+        function makeOutListener(infowindow) {
+          return function () {
+            infowindow.close();
+          };
+        }
       });
     };
 
