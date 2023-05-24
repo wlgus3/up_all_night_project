@@ -91,7 +91,7 @@ Link {
   margin-top: 3vw;
   padding: 1.5vw 3vw;
   background-color: #fccd7f;
-  height: 14vh;
+  height: 15vh;
   width: 100vw;
   bottom: 0px;
   /* position: absolute; -> 이거하면 무조건 자리차지하기떄문에 지도영역도 침범함 */

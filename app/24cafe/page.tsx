@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/database.js";
 // import Map from "../component/map";
 import dynamic from "next/dynamic";
+import GoogleForm from "../component/googleForm";
 export default async function Cafe() {
   // const client = await connectDB;
   // const db = client.db("uppernight");
@@ -22,6 +23,10 @@ export default async function Cafe() {
       <div>3. 카페 정보열기는 핀 좌클릭, 정보닫기는 핀 우클릭입니다.</div>
       <div>
         4. 카페이름을 클릭하면 <span className="bold">카카오맵 링크</span>로 연결됩니다.
+      </div>
+      <div>
+        <GoogleForm />
+        5. <span className="bold">정보오류 및, 신규 24시 카페등록</span>은 오른쪽 버튼을 이용해주세요! ➡️
       </div>
       <DynamicMap />
     </div>
