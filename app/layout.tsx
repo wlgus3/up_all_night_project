@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import logoimg from "/public/KakaoTalk_Photo_2023-05-11-17-29-42 002.png";
+import Header from "./component/header";
+import Footer from "./component/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,18 +17,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       {/* <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%REACT_APP_KAKAO_API_KEY%&libraries=services"></script> */}
       <body className={inter.className}>
-        <div className="header">
-          <span style={{ margin: "3px" }}>
-            <Image src={logoimg} alt="logo image" height="35" width="35" className="mobile_logo_image" />
-            <Image src={logoimg} alt="logo image" height="50" width="50" className="web_logo_image" />
-          </span>
-          <Link href={"/"}> Upper Night </Link>
+        <div className="wrap">
+          <Header />
+          <div className="page">{children}</div>
+          <Footer />
         </div>
-        <div className="top_nav">
-          <Link href={"/cafemap"}> 24H cafe </Link>
-          <Link href={"/community"}>Community</Link>
-        </div>
-        <div className="page">{children}</div>
       </body>
     </html>
   );
