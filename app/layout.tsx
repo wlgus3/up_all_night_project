@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href={"/"}> Upper Night </Link>
         </div>
         <div className="top_nav">
-          <Link href={"/cafemap"}> 24H cafe </Link>
+          <Link href={"/24cafe"}> 24H cafe </Link>
           <Link href={"/community"}>Community</Link>
         </div>
         <div className="page">{children}</div>

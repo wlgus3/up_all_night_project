@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getLineAndCharacterOfPosition } from "typescript";
 import cafeData from "/public/total_final_data.json";
+import dynamic from "next/dynamic";
 // import location from "./location";
 
 function Map() {
@@ -46,6 +47,7 @@ function Map() {
     //!지도로딩 시작
     //! DOM을 여기서 직접 만져서 <head/>안에 <script/>넣어줌
     // DOM을 이용하여 script 태그를 만들어주자.
+
     const mapScript = document.createElement("script");
     // script.async = true 라면,
     // 해당 스크립트가 다른 페이지와는 비동기적으로 동작함을 의미한다.
@@ -97,7 +99,7 @@ function Map() {
         var positions = [];
         for (let i = 0; i < cafeData.length; i++) {
           positions.push({
-            content: `<div style={font-size='small'}>${cafeData[i].place_name}</div><div>${cafeData[i].road_address_name}</div><div>${cafeData[i].phone}</div><a href='${cafeData[i].place_url}'>카카오지도 링크<a/>`,
+            content: `<div style=width:220px;><a href='${cafeData[i].place_url}'><div style=font-weight:650>${cafeData[i].place_name}</div><a/><div style=font-size:smaller>${cafeData[i].road_address_name}</div><div>${cafeData[i].phone}</div></div>`,
             latlng: new kakao.maps.LatLng(cafeData[i].y, cafeData[i].x),
           });
         }
@@ -152,7 +154,7 @@ function Map() {
 
   return (
     <div className="map_center">
-      <div id="map" style={{ width: "90vw", height: "65vh" }}></div>
+      <div id="map" style={{ width: "100vw", height: "65vh" }}></div>
     </div>
   );
 }
