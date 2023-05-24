@@ -3,7 +3,7 @@ body {
   /* justify-content: space-around; */
   margin: auto;
   flex-direction: column;
-  max-width: 1400px;
+  /* max-width: 1400px; */
 
   @media screen and (max-width: 768px) {
     font-size: 14px;
@@ -30,9 +30,6 @@ Link {
   flex-direction: column;
 }
 
-.page {
-  flex: 1;
-}
 /* ! 헤더 */
 .header {
   display: flex;
@@ -40,9 +37,13 @@ Link {
   font-size: 4vw;
   font-weight: bold;
   margin-top: 3px;
-
+  /* max-width: 1400px; */
+  width: 100vw;
   @media screen and (max-width: 768px) {
     font-size: 27px;
+  }
+  @media screen and (min-width: 1300px) {
+    font-size: 48px;
   }
 }
 .header a {
@@ -51,6 +52,8 @@ Link {
 }
 /*? top nav link 호버시 동적 언더라인 css */
 .top_nav {
+  /* max-width: 1400px; */
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   font-size: 2.5vw;
@@ -58,6 +61,9 @@ Link {
   padding-bottom: 3px;
   @media screen and (max-width: 768px) {
     font-size: 21px;
+  }
+  @media screen and (min-width: 1300px) {
+    font-size: 30px;
   }
 }
 
@@ -98,6 +104,11 @@ Link {
 }
 
 .page {
+  display: flex;
+
+  /* max-width: 1400px; */
+  flex: 1;
+  width: 90vw;
   padding: 0 15px;
   margin: 0 1vw;
   border-top: rgb(255, 194, 80) solid 1.5px;
@@ -113,7 +124,7 @@ Link {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  padding: 1vh 0;
+  padding: 2vh 0;
   flex-wrap: wrap;
 }
 .post_info {
@@ -124,12 +135,11 @@ Link {
   background-color: rgb(255, 243, 208);
   width: 46%;
   border: solid 1px black;
-  padding: 2px 1vw;
+  padding: 0.5vw 1vw;
   flex-direction: row;
   justify-content: space-between;
   border-radius: 5px;
-  margin-right: 1vw;
-  margin-bottom: 2vw;
+  margin: 1vw 0.5vw;
 }
 .post_image {
   height: 10vw;
@@ -155,6 +165,7 @@ button {
   border-radius: 5px;
 }
 button:hover {
+  cursor: pointer;
   font-weight: 500;
   transition: 0.5s;
   background: rgba(252, 197, 88, 0.762);

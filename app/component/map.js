@@ -154,7 +154,7 @@ function Map() {
 
   return (
     <div className="map_center">
-      <div id="map" style={{ width: "100vw", height: "65vh" }}></div>
+      <div id="map" style={{ width: "85vw", height: "65vh" }}></div>
     </div>
   );
 }
