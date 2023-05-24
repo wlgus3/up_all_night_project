@@ -99,7 +99,7 @@ function Map() {
         var positions = [];
         for (let i = 0; i < cafeData.length; i++) {
           positions.push({
-            content: `<div style=width:220px;><a href='${cafeData[i].place_url}'><div style=font-weight:650>${cafeData[i].place_name}</div><a/><div style=font-size:smaller>${cafeData[i].road_address_name}</div><div>${cafeData[i].phone}</div></div>`,
+            content: `<div style=width:220px;><a href='${cafeData[i].place_url}' style=text-decoration:none ><div style=font-weight:650>${cafeData[i].place_name}</div><a/><div style=font-size:smaller>${cafeData[i].road_address_name}</div><div>${cafeData[i].phone}</div></div>`,
             latlng: new kakao.maps.LatLng(cafeData[i].y, cafeData[i].x),
           });
         }

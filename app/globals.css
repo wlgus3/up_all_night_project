@@ -4,10 +4,13 @@ body {
   margin: auto;
   flex-direction: column;
   max-width: 1400px;
-  padding: 0 15px;
+
   @media screen and (max-width: 768px) {
     font-size: 14px;
   }
+}
+Link {
+  text-decoration: none;
 }
 
 .mobile_logo_image {
@@ -20,7 +23,17 @@ body {
     display: none;
   }
 }
+/* wraper 가 100vh 공간 차지하도록 하고 page flex:1로 줘서 공간을 자동으로 채우도록 한다.  */
+.wrap {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
+.page {
+  flex: 1;
+}
+/* ! 헤더 */
 .header {
   display: flex;
   justify-content: center;
@@ -36,7 +49,7 @@ body {
   color: black;
   text-decoration: none;
 }
-/*! top nav link 호버시 동적 언더라인 css */
+/*? top nav link 호버시 동적 언더라인 css */
 .top_nav {
   display: flex;
   justify-content: space-around;
@@ -72,9 +85,27 @@ body {
 .top_nav a.fromLeft::after {
   transform-origin: 0% 50%;
 }
+/* ! Footer */
+.footer {
+  border-top: 3px solid #ffb520;
+  margin-top: 3vw;
+  padding: 1.5vw 3vw;
+  background-color: #fccd7f;
+  height: 14vh;
+  width: 100vw;
+  bottom: 0px;
+  /* position: absolute; -> 이거하면 무조건 자리차지하기떄문에 지도영역도 침범함 */
+}
+
 .page {
+  padding: 0 15px;
   margin: 0 1vw;
-  border-top: rgb(255, 191, 73) solid 1px;
+  border-top: rgb(255, 194, 80) solid 1.5px;
+}
+.bold {
+  font-size: 115%;
+  font-weight: 600;
+  margin: 0 1px;
 }
 
 /*! 커뮤니티  */
@@ -145,8 +176,8 @@ button:hover {
 }
 
 .map_center {
-  border: rgb(255, 209, 122) solid 2px;
-  margin-top: 1vw;
+  border: rgb(255, 209, 122) solid 3px;
+  margin: 2vw;
   display: flex;
   justify-content: center;
 }
