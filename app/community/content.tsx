@@ -10,7 +10,7 @@ export default function Content(props) {
     <div className="post">
       <div>
         <Link href={`community/detail/${props.element._id}`} prefetch={false}>
-          <div>{props.element.title}</div>
+          <div className="post_overflow">{props.element.title}</div>
         </Link>
 
         {/* <div
@@ -21,7 +21,7 @@ export default function Content(props) {
           {props.element.title}
         </div> */}
         <div>작성시간: {timeShortVer}</div>
-        <div>{props.element.content}</div>
+        <div className="post_overflow">{props.element.content}</div>
         <div>추천: {props.element.score}</div>
       </div>
       <div className="post_image">{/* <Image alt="image" src={props.element.image} height="10" width="10"></Image> */}</div>
