@@ -17,8 +17,8 @@ export default async function CommunityDetail(props) {
   return (
     <div>
       <h2>노력 자랑 게시판 </h2>
-      <div>
-        <div className="post_info">
+      <div className="post_detail">
+        <div className="post_detail_info">
           <h3>
             제목: {result.title}
             <div className="right">
@@ -33,8 +33,10 @@ export default async function CommunityDetail(props) {
             <div>작성일시 : {timeShortVer}</div>
           </div>
         </div>
-        <div>{result.content} </div>
-        <div>추천 : {result.score}</div>
+        <div className="post_detail_content">
+          <div>{result.content} </div>
+          <div>추천 : {result.score}</div>
+        </div>
       </div>
       <div>
         <h3>댓글</h3>

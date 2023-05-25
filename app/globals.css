@@ -147,6 +147,14 @@ Link {
   background-color: rgb(255, 191, 73);
   margin: 0.5vw 0.5vw;
 }
+.post_overflow {
+  max-width: 30vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
 
 /* ! 글쓰기 , 글 수정  */
 .post_write {
@@ -191,4 +199,16 @@ button:hover {
   margin: 2vw;
   display: flex;
   justify-content: center;
+}
+
+/* !포스트 디테일 페이지  */
+.post_detail {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.post_detail_info {
+}
+.post_detail_content {
 }
