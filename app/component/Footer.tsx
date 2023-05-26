@@ -9,7 +9,7 @@ export default function Footer() {
         <span>Contact : pullhorizon@gmail.com</span>
         <br />
         <span>
-          Copyright 2023. <span className="bold">uppernight.</span> All Rights Reserved.
+          Copyright 2023. <span className="bold">Uppernight.</span> All Rights Reserved.
         </span>
         <div style={{ fontSize: "130%", right: "5vw", position: "absolute", marginTop: "2vw" }}>
           UpperNight <Image src={logoimg} alt="logo image" height="35" width="35" className="mobile_logo_image" />
