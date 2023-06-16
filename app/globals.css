@@ -147,6 +147,7 @@ Link {
   background-color: rgb(255, 191, 73);
   margin: 0.5vw 0.5vw;
 }
+/* 게시글 내용 길어졌을때 무한정 길어지는것 막고 ...으로 말줄임표시 */
 .post_overflow {
   max-width: 30vw;
   overflow: hidden;
