@@ -4,7 +4,7 @@ import { getLineAndCharacterOfPosition } from "typescript";
 import cafeData from "/public/total_final_data.json";
 import dynamic from "next/dynamic";
 // import location from "./location";
-
+export const revalidate = 600; //! 페이지 캐시 =페이지 자체를 저장해서 서버 부하 줄여주는 기능
 function Map() {
   /*global kakao*/
   // const [Lng, setLng] = useState();
