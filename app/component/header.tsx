@@ -3,13 +3,29 @@ import Link from "next/link";
 import Image from "next/image";
 import logoimg from "/public/KakaoTalk_Photo_2023-05-11-17-29-42 002.png";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
-export default function Header() {
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
+
+export default async function Header() {
+  // let session = getServerSession(authOptions);
+  const session: any = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근
+  console.log(session);
   return (
     <div>
       <div>
         <span className="right" style={{ margin: "5px 6vw" }}>
-          <LoginButton />
+          {session ? (
+            <div>
+              <span>
+                <LogoutButton />{" "}
+              </span>
+              <span>{session.user.name} 님 반갑습니다 !</span>
+            </div>
+          ) : (
+            <LoginButton></LoginButton>
+          )}
         </span>
       </div>
 

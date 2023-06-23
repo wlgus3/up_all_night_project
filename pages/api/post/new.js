@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   // const result = await db.collection("community").find().toArray();
   let today = new Date(); //!날짜 보내기
   let session = await getServerSession(req, res, authOptions); //서버기능 안에서 갖다쓸 때에는 req, res도 함께 가져다 써야함
-  // console.log(session);
+  console.log(session);
   // console.log(req.body);
   // req.body.author = session.user.name;
   // req.body.email = session.user.email;

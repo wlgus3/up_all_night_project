@@ -26,7 +26,7 @@ export default async function Home() {
         <div>
           2. <span className="bold">빨간색 핀</span>은 '현위치'입니다.(미허용시 현위치 홍대입구역으로 표시)
         </div>
-        <div>3. 카페 정보열기는 핀 좌클릭, 정보닫기는 핀 우클릭입니다.</div>
+        <div>3. <span className="bold">카페 정보열기는 핀 좌클릭, 정보닫기는 핀 우클릭</span>입니다.</div>
         <div>
           4. 카페이름을 클릭하면 <span className="bold">카카오맵 링크</span>로 연결됩니다.
         </div>
