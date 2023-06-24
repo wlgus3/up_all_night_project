@@ -16,12 +16,19 @@ export default async function handler(req, res) {
   const db = await client.db("uppernight");
   let session = await getServerSession(req, res, authOptions);
   let find = await db.collection("community").findOne({ _id: new ObjectId(JSON.parse(req.body)._id) });
-  if (req.method == "POST" && find.email == session.user.email) {
-    let result = await db.collection("community").deleteOne({ _id: new ObjectId(JSON.parse(req.body)._id) });
-    console.log(result); //삭제 잘됐는지 확인
-    res.status(200).json("삭제완료");
+  if (!session) {
+    return res.status(400).json("로그인 전에는 삭제가 불가능합니다.");
+  }
+  if (req.method == "POST") {
+    if (find.email == session.user.email) {
+      let result = await db.collection("community").deleteOne({ _id: new ObjectId(JSON.parse(req.body)._id) });
+      console.log(result); //삭제 잘됐는지 확인
+      res.status(200).json("삭제완료");
+    } else {
+      return res.status(400).json("작성자와 현재 사용자 불일치");
+    }
   } else {
-    return res.status(500).json("delete 서버오류 혹은 작성자와 현재 사용자 불일치");
+    return res.status(500).json("delete 서버오류");
   }
   // if (req.method == "POST") {
   //   //! delete명령어로 했을 때에 오류나서 일단 post로 구현
