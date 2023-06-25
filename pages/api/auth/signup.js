@@ -8,6 +8,6 @@ export default async function handler(req, res) {
 
     let db = (await connectDB).db("community");
     await db.collection("user_signup").insertOne(req.body); //유저정보를 object자료로 만들어서 user_cred 컬렉션에 넣으라고 했습니다.
-    res.status(200).json("성공");
+    res.status(200).json("회원가입 성공");
   }
 }

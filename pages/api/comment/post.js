@@ -19,6 +19,9 @@ export default async function handler(req, res) {
     if (req.body == "") {
       return res.status(500).json("댓글 미작성");
     }
+    if (session == "") {
+      return res.status(500).json("로그인 후 이용가능");
+    }
     try {
       let result = db.collection("comments").insertOne(data); //댓글작성자, 날짜 추가해서 포스팅
       res.status(200).json("댓글작성 완료");
