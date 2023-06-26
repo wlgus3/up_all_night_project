@@ -5,6 +5,7 @@ import { MongoClient, ObjectId } from "mongodb";
 import { connectDB } from "@/util/database.js";
 import Link from "next/link";
 import DeleteButton from "./deletebutton";
+import Comment from "@/app/component/comment";
 export default async function CommunityDetail(props) {
   const client = await connectDB;
   const db = client.db("uppernight");
@@ -38,10 +39,7 @@ export default async function CommunityDetail(props) {
           <div>추천 : {result.score}</div>
         </div>
       </div>
-      <div>
-        <h3>댓글</h3>
-        <div>댓글리스트 </div>
-      </div>
+      <Comment parent={result._id} />
       <div className="right">
         <DeleteButton _id={result._id} />
       </div>
