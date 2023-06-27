@@ -213,3 +213,9 @@ button:hover {
 }
 .post_detail_content {
 }
+
+.quill_Editor {
+  width: 75vw;
+  height: 400px;
+  margin-bottom: 50px;
+}

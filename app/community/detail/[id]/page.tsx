@@ -31,13 +31,13 @@ export default async function CommunityDetail(props) {
             </h3>
 
             <div>
-              <div>작성자 : </div>
+              <div>작성자 : {result.author}</div>
               <div>작성일시 : {timeShortVer}</div>
             </div>
           </div>
           <div className="post_detail_content">
             <div>{result.content} </div>
-            <div>추천 : {result.score}</div>
+            {/* <div>추천 : {result.score}</div> */}
           </div>
         </div>
         <Comment parent={result._id} />

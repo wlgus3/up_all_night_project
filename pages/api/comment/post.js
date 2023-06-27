@@ -19,6 +19,9 @@ export default async function handler(req, res) {
     if (req.body == "") {
       return res.status(500).json("댓글 미작성");
     }
+    if (req.body.length > 200) {
+      return res.status(500).json("댓글의 길이가 너무 깁니다.(최대 200자)");
+    }
     if (session == "") {
       return res.status(500).json("로그인 후 이용가능");
     }

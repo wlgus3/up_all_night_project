@@ -3,7 +3,6 @@ import { ObjectId } from "mongodb"; //! 이거 없으면 500에러
 
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import { isConstructorDeclaration } from "typescript";
 
 //! 일반적인 delete 구현 . api/post/delete/[id] 와 같이  URL parameter사용한 방법도 있음
 export default async function handler(req, res) {

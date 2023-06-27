@@ -21,14 +21,25 @@ export default function Comment(props) {
     //form 태그 쓰면 새로고침되기에 안씀a
     <div>
       <h3>댓글</h3>
-      <div>댓글리스트 </div>
-      {data.length > 0 ? data.map((a, i) => <p key={i}>{a.content}</p>) : "댓글없음"}
+
+      {data.length > 0
+        ? data.map((el, idx) => (
+            <p key={idx}>
+              {el.content} ...from: {el.author}
+            </p>
+          ))
+        : "댓글없음"}
       <div>
         <input
           onChange={(e) => {
             setComment(e.target.value);
           }}
+          type="textarea"
+          maxLength={200}
+          placeholder="댓글을 입력하세요 (최대 200자)"
+          style={{ width: "80%" }}
         ></input>
+
         <button
           onClick={() => {
             console.log(comment);

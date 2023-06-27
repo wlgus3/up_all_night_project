@@ -4,7 +4,6 @@ export default function Error({ error, reset }) {
   return (
     <div>
       <h4>ERROR </h4>
-
       <button
         onClick={() => {
           reset();
