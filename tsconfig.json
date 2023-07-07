@@ -32,7 +32,7 @@
     "pages/document.jsx",
     "app/map.js",
     "app/component/LoginButton.js",
-    "app/component/Editor.js",
+    "app/component/Editor.j, "app/community/detail/error.js"s",
     "util/database.ts"
   ],
   "exclude": ["node_modules"]
