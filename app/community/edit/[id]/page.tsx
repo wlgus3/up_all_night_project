@@ -1,5 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb";
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 
 interface editContentProps {
   params: {

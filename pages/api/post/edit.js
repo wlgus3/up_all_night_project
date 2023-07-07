@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb"; //! 이거 없으면 500에러
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";

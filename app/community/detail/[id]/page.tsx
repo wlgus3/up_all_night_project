@@ -1,6 +1,7 @@
 // "use client";
 import { MongoClient, ObjectId } from "mongodb";
-import { connectDB } from "@/util/database.js";
+
+import { connectDB } from "@/util/database";
 import Link from "next/link";
 import DeleteButton from "./deletebutton";
 import Comment from "@/app/component/comment";
@@ -12,7 +13,7 @@ interface ContentProps {
 }
 
 export default async function CommunityDetail(props: ContentProps) {
-  const client = await connectDB;
+  const client: any = await connectDB;
   const db = client.db("uppernight");
   const result = await db.collection("community").findOne({ _id: new ObjectId(props.params.id) });
   //! .findOne({키:값}) 을 적으면 조건에 해당하는 data만 찾아온다.

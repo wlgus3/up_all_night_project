@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";

@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb"; //! 이거 없으면 500에러
 
 export default async function handler(req, res) {

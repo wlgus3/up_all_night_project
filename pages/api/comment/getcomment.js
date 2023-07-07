@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 import { ObjectID } from "bson";
 // import { getServerSession } from "next-auth";
 // import { authOptions } from "../auth/[...nextauth]";
