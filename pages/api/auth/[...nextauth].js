@@ -26,7 +26,7 @@ export const authOptions = {
       //직접 DB에서 아이디,비번 비교하고
       //아이디,비번 맞으면 return 결과, 틀리면 return null 해야함
       async authorize(credentials) {
-        let db = (await connectDB).db("community");
+        let db = (await connectDB).db("uppernight");
         let user = await db.collection("user_signup").findOne({ email: credentials.email }); //유저 존재하는지 확인
         if (!user) {
           console.log("해당 이메일은 없음");

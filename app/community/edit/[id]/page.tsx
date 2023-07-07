@@ -12,9 +12,7 @@ export default async function CommunityDetail(props) {
   return (
     <div>
       <h2>글 수정하기</h2>
-      {/* <form action="/api/list" method="POST">
-        <button type="submit">완료</button>
-      </form> */}
+
       <div className="post_write">
         <form action="/api/post/edit" method="POST">
           {/* 키이름은 name ='~' , 칸 설명은 placeholder='~' */}
@@ -26,7 +24,7 @@ export default async function CommunityDetail(props) {
           {/* <div> 연결된 노력이 있다면 선택해주세요  </div> */}
           <br />
           <div style={{ color: "red" }}>글 수정시 사진이 초기화되기에 반드시 재첨부해야합니다.</div>
-          <div>사진을 첨부하세요. (.jpg, .jpeg, .png 형식만 가능, 2MB 용량제한) </div>
+          <div>사진을 첨부하세요. (.jpg, .jpeg, .png 형식만 가능, 1MB 용량제한) </div>
           <input name="image" type="file" accept="image/jpg, image/jpeg, image/png" placeholder="사진을 첨부하세요" />
           {/* <input name="image" type="file" accept="image/jpg, image/jpeg, image/png" placeholder="사진을 첨부하세요" defaultValue={result.image} /> //! 디폴트밸류 설정해놓으면 오류로 안됨 일단 제거 */}
 

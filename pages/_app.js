@@ -2,6 +2,7 @@ import "../app/globals.css";
 
 // import the Head component for appending elements to the head of the page
 import Head from "next/head";
+import "react-quill/dist/quill.snow.css";
 
 function MyApp({ Component, pageProps }) {
   return (
