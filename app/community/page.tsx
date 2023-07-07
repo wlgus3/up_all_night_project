@@ -25,9 +25,26 @@ export default async function Community() {
         </div>
       </div>
       <div className="community">
-        {result.map((el: string, index: number) => {
-          return <Content element={el} key={index} result={result} />;
-        })}
+        {result.map(
+          (
+            el: {
+              date: string;
+              _id: string;
+              title: string;
+              content: string;
+              score: number;
+            },
+            index: number
+          ) => {
+            return (
+              <Content
+                element={el}
+                key={index}
+                // result={result}
+              />
+            );
+          }
+        )}
       </div>
     </div>
   );
