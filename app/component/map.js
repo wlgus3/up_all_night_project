@@ -146,10 +146,11 @@ function Map() {
     //!지도로딩 끝
   };
 
-  drawingMap();
+  // drawingMap();
 
   useEffect(() => {
     location();
+    drawingMap();
   }, [Lat, Lng]);
 
   return (
