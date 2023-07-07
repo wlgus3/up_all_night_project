@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 // import Map from "../component/map";
 import dynamic from "next/dynamic";
 import GoogleForm from "../component/googleForm";

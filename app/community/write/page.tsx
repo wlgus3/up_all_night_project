@@ -1,7 +1,7 @@
 "use client";
 
 import { MongoClient, ObjectId } from "mongodb";
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 import { useState } from "react";
 
 import dynamic from "next/dynamic";
@@ -12,7 +12,7 @@ export default async function CommunityDetail() {
 
   const [text, setText] = useState<string>("");
 
-  const handleText = (value) => {
+  const handleText = (value: any) => {
     console.log(value);
     setText(value);
   };

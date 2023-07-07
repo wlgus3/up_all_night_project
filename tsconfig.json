@@ -31,7 +31,9 @@
     "pages/api/posting.js",
     "pages/document.jsx",
     "app/map.js",
-    "app/component/LoginButton.js"
-, "app/component/Editor.ㅓㄴ"  ],
+    "app/component/LoginButton.js",
+    "app/component/Editor.js",
+    "util/database.ts"
+  ],
   "exclude": ["node_modules"]
 }

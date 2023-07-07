@@ -1,4 +1,4 @@
-import { connectDB } from "@/util/database.js";
+import { connectDB } from "@/util/database";
 
 export default async function handler(req, res) {
   //! DB 전체 get
