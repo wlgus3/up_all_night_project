@@ -1,7 +1,17 @@
 // "use client";
 import Link from "next/link";
 import { useEffect } from "react";
-export default function Content(props) {
+
+interface contentDatas {
+  element: {
+    date: string;
+    _id: string;
+    title: string;
+    content: string;
+    score: number;
+  };
+}
+export default function Content(props: contentDatas) {
   // let router = useRouter();
   let timeShortVer = String(props.element.date).split("GMT")[0];
   //Wed May 17 2023 17:21:37 GMT+0900 (대한민국 표준시) ->너무 길어서 GMT 이후로 버림

@@ -32,6 +32,6 @@
     "pages/document.jsx",
     "app/map.js",
     "app/component/LoginButton.js"
-  ],
+, "app/component/Editor.ㅓㄴ"  ],
   "exclude": ["node_modules"]
 }
