@@ -5,7 +5,13 @@ import Link from "next/link";
 import DeleteButton from "./deletebutton";
 import Comment from "@/app/component/comment";
 import NotFound from "../not-found";
-export default async function CommunityDetail(props) {
+interface ContentProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function CommunityDetail(props: ContentProps) {
   const client = await connectDB;
   const db = client.db("uppernight");
   const result = await db.collection("community").findOne({ _id: new ObjectId(props.params.id) });
