@@ -2,9 +2,13 @@
 
 import { redirect } from "next/dist/server/api-utils";
 
-export default function DeleteButton(props) {
-  console.log(props);
-  console.log(props._id);
+interface deleteBtnProps {
+  _id: string;
+}
+
+export default function DeleteButton(props: deleteBtnProps) {
+  // console.log(props);
+  // console.log(props._id);
   return (
     <div>
       <button

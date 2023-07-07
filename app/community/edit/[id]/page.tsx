@@ -1,7 +1,13 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { connectDB } from "@/util/database.js";
 
-export default async function CommunityDetail(props) {
+interface editContentProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function EditCommunityDetail(props: editContentProps) {
   const client = await connectDB;
   const db = client.db("uppernight");
   const result = await db.collection("community").findOne({ _id: new ObjectId(props.params.id) });
