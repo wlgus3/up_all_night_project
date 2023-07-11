@@ -12,6 +12,12 @@ const url = process.env.MONGODB_URI;
 const options: any = { useNewUrlParser: true };
 var connectDB: any;
 
+declare global {
+  namespace globalThis {
+    var _mongo: Promise<MongoClient>;
+  } //!globalThis에 _mongo라는 속성 들어갈수 있다고 타입지정
+}
+
 if (process.env.NODE_ENV === "development") {
   if (!global._mongo) {
     global._mongo = new MongoClient(url as unknown as string, options).connect();
