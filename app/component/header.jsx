@@ -12,7 +12,7 @@ import { Session } from "../type";
 export default async function Header() {
   // let session = getServerSession(authOptions);
 
-  const session: any = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근
+  const session = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근 ->authOptions type에러가 나는데 next-auth 임포트해서 메뉴얼대로 export했기때문에 너무 복잡, 나중에 TS 파일로 수정
   console.log(session);
   return (
     <div>
