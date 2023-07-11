@@ -7,17 +7,28 @@ import LogoutButton from "./LogoutButton";
 import SignupButton from "./SignupButton";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
+
 import { Session } from "../type";
 
-export default async function Header() {
+import UseSessionHeader from "./header/useSessionHeader";
+export default function Header() {
   // let session = getServerSession(authOptions);
 
-  const session = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근 ->authOptions type에러가 나는데 next-auth 임포트해서 메뉴얼대로 export했기때문에 너무 복잡, 나중에 TS 파일로 수정
-  console.log(session);
+  // async function sessionReturn() {
+  //   const temptsession = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근 ->authOptions type에러가 나는데 next-auth 임포트해서 메뉴얼대로 export했기때문에 너무 복잡, 나중에 TS 파일로 수정
+  //   console.log("session1", temptsession);
+  //   return temptsession;
+  // }
+  // let [session, setSession] = useState();
+  // useEffect(sessionReturn(), []);
+  // // const session = sessionReturn();
+  // setSession(temptsession);
+  // console.log("session2", session);
+
   return (
     <div>
       <div>
-        <span className="right" style={{ margin: "5px 6vw" }}>
+        {/* <span className="right" style={{ margin: "5px 6vw" }}>
           {session ? (
             <div style={{ display: "flex", flexDirection: "row" }}>
               <span>{session.user.name} 님 반갑습니다 .</span>
@@ -35,7 +46,8 @@ export default async function Header() {
               </span>
             </div>
           )}
-        </span>
+        </span> */}
+        <UseSessionHeader />
       </div>
 
       <div className="header">
