@@ -33,6 +33,7 @@
     "app/map.js",
     "app/component/LoginButton.js",
     "app/component/Editor.js",
+    "app/community/detail/error.js",
     "util/database.ts"
   ],
   "exclude": ["node_modules"]

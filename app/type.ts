@@ -7,9 +7,9 @@ export type Session = {
 };
 
 
-export type ApiResponse<T>{
-  data:[],
-  totalPage:number,
-  page:number
+// export type ApiResponse<T>{
+//   data:[],
+//   totalPage:number,
+//   page:number
 
-}
+// }

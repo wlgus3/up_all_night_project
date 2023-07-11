@@ -1,14 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 // interface OwnProps {
 //   parent: string;
 // }
 
-export default function Comment(props) {
+interface commentProps {
+  parent: string;
+}
+
+export default function Comment(props: commentProps) {
   let [comment, setComment] = useState("");
   let [data, setData] = useState([]);
+  const router = useRouter();
+  console.log(props.parent);
   useEffect(() => {
     //? 댓글내용 가져오기 코드
     fetch("/api/comment/getcomment?id=" + props.parent) //글 정보 쿼리스트링 문법으로 보냄
@@ -23,11 +30,19 @@ export default function Comment(props) {
       <h3>댓글</h3>
 
       {data.length > 0
-        ? data.map((el, idx) => (
-            <p key={idx}>
-              {el.content} ...from: {el.author}
-            </p>
-          ))
+        ? data.map(
+            (
+              el: {
+                content: string;
+                author: string;
+              },
+              idx
+            ) => (
+              <p key={idx}>
+                {el.content} ...from: {el.author}
+              </p>
+            )
+          )
         : "댓글없음"}
       <div>
         <input
@@ -57,7 +72,10 @@ export default function Comment(props) {
               .then((res) => {
                 alert(res);
               })
-              .then(location.reload());
+              .then(() => router.replace("/community"));
+            //! 원래는 reload()를 하면서 코멘트 달린 게 바로 보여야 하는데, 아직 이유는 모르겠으나 안됨... 일단 /community 페이지로 나가도록 구현
+            // .then(() => router.replace("/community/detail/" + props.parent));
+            // .then(() => router.reload());
           }}
         >
           댓글전송

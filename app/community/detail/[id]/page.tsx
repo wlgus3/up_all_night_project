@@ -15,9 +15,10 @@ interface ContentProps {
 export default async function CommunityDetail(props: ContentProps) {
   const client: any = await connectDB;
   const db = client.db("uppernight");
+  console.log(props.params.id);
   const result = await db.collection("community").findOne({ _id: new ObjectId(props.params.id) });
   //! .findOne({키:값}) 을 적으면 조건에 해당하는 data만 찾아온다.
-  // console.log(result);
+  console.log(result);
   // console.log(props);
   let timeShortVer = String(result.date).split("GMT")[0];
   if (result === null) {
