@@ -9,9 +9,7 @@
 //!  .ts 파일형식일 때
 //!아래는 몽고디비 개발자들이 추천하는 세팅코드
 import { MongoClient } from "mongodb";
-import dotenv from "dotenv";
 
-dotenv.config(); // 환경변수를 사용한다는 명령어 config()
 //connect MongoDB
 const url = process.env.MONGODB_URI;
 //환경변수 설정 안하면 에러 발생
