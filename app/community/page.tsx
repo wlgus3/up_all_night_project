@@ -8,6 +8,14 @@ import Content from "./content";
 // import { useRouter } from "next/router";
 
 export default async function Community() {
+  interface element {
+    date: string;
+    _id: string;
+    title: string;
+    content: string;
+    score: number;
+  }
+
   const client = await connectDB;
   const db = client.db("uppernight");
   const result = await db.collection("community").find().toArray();
@@ -25,26 +33,15 @@ export default async function Community() {
         </div>
       </div>
       <div className="community">
-        {result.map(
-          (
-            el: {
-              date: string;
-              _id: string;
-              title: string;
-              content: string;
-              score: number;
-            },
-            index: number
-          ) => {
-            return (
-              <Content
-                element={el}
-                key={index}
-                // result={result}
-              />
-            );
-          }
-        )}
+        {result?.map((el, index) => {
+          return (
+            <Content
+              element={el}
+              key={index}
+              // result={result}
+            />
+          );
+        })}
       </div>
     </div>
   );

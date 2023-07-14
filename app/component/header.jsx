@@ -28,25 +28,6 @@ export default function Header() {
   return (
     <div>
       <div>
-        {/* <span className="right" style={{ margin: "5px 6vw" }}>
-          {session ? (
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <span>{session.user.name} 님 반갑습니다 .</span>
-              <span>
-                <LogoutButton />{" "}
-              </span>
-            </div>
-          ) : (
-            <div style={{ display: "flex", flexDirection: "row" }}>
-              <span>
-                <LoginButton></LoginButton>
-              </span>
-              <span>
-                <SignupButton></SignupButton>
-              </span>
-            </div>
-          )}
-        </span> */}
         <UseSessionHeader />
       </div>
 
