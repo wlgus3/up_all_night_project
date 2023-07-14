@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-// import { getLineAndCharacterOfPosition } from "typescript";
+// import { getLineAndCharacterOfPosition } from "typescript"; //pref-hooks
 import cafeData from "/public/total_final_data.json";
 import dynamic from "next/dynamic";
 // import location from "./location";

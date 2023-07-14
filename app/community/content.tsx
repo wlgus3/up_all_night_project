@@ -11,7 +11,7 @@ interface contentDatas {
     score: number;
   };
 }
-export default function Content(props: contentDatas) {
+export default function Content(props: any) {
   // let router = useRouter();
   let timeShortVer = String(props.element.date).split("GMT")[0];
   //Wed May 17 2023 17:21:37 GMT+0900 (대한민국 표준시) ->너무 길어서 GMT 이후로 버림
