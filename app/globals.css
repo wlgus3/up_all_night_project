@@ -29,22 +29,25 @@ Link {
   margin-top: 3px;
   /* max-width: 1400px; */
   width: 100vw;
-  @media screen and (max-width: 768px) {
-    font-size: 27px;
-  }
+
   @media screen and (min-width: 1300px) {
     font-size: 48px;
   }
+  @media screen and (max-width: 768px) {
+    font-size: 27px;
+  }
 }
 .web_logoimg {
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
     display: none;
   }
 }
 
 .mobile_logoimg {
-  @media screen and (min-width: 768px) {
-    display: none;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: inline;
   }
 }
 
