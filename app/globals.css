@@ -36,13 +36,13 @@ Link {
     font-size: 48px;
   }
 }
-.web_logo_image {
+.web_logoimg {
   @media screen and (max-width: 768px) {
     display: none;
   }
 }
 
-.mobile_logo_image {
+.mobile_logoimg {
   @media screen and (min-width: 768px) {
     display: none;
   }
