@@ -12,8 +12,8 @@ function Map() {
   const [data, setData] = useState();
   const [Lng, setLng] = useState();
   const [Lat, setLat] = useState();
-  console.log(cafeData[2]);
-  console.log(cafeData.length);
+  // console.log(cafeData[2]);
+  // console.log(cafeData.length);
   function location() {
     //!브라우저에서 위치 받아오는 함수
     const { geolocation } = navigator;

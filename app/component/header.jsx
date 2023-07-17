@@ -33,8 +33,13 @@ export default function Header() {
 
       <div className="header">
         <span style={{ margin: "3px" }}>
-          <Image src={logoimg} alt="logo image" height="35" width="35" className="mobile_logo_image" />
-          <Image src={logoimg} alt="logo image" height="50" width="50" className="web_logo_image" />
+          <span>
+            <Image className="mobile_logoimg" src={logoimg} alt="logo image" height="35" width="35" />
+          </span>
+
+          <span>
+            <Image className="web_logoimg" src={logoimg} alt="logo image" height="50" width="50" />
+          </span>
         </span>
         <Link href={"/"}> Upper Night </Link>
       </div>
