@@ -14,8 +14,8 @@ export default async function Home() {
   return (
     <div className="map_page">
       <h2>안녕하세요 Upper Night입니다!</h2>
-      <div>✔️ Upper Night는 밤샘공부를 즐기며 급속한 성장을 추구하는 사람들을 위한 공간입니다.</div>
-      <div>✔️ 현재는 24시 카페를 모아서 보여주는 서비스를 제공하고 있습니다.</div>
+      <div>✔️ Upper Night는 밤샘몰입을 즐기며 빠른 성장을 추구하는 사람들을 위한 공간입니다.</div>
+      <div>✔️ 현재는 24시 카페와 심야영업 카페를 모아서 보여주는 서비스를 제공하고 있습니다.</div>
       <div>✔️ 함께 성장하기 위한 다양한 서비스를 준비중이니 기대해주세요! </div>
       <div>
         <h3>☕️ 24시 카페 지도 </h3>
