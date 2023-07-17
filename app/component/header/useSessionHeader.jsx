@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 
 export default async function UseSessionHeader() {
   const session = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근
-  console.log("session1", session);
+  // console.log("session1", session);
 
   return (
     <span className="right" style={{ margin: "5px 6vw" }}>

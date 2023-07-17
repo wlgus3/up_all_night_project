@@ -8,9 +8,7 @@ export default async function Cafe() {
   // const db = client.db("uppernight");
   // const result = await db.collection("community").find().toArray();
   // console.log(result);
-  const DynamicMap = dynamic(() => import("../component/map"), {
-    loading: () => <p>지도를 불러오는중 ...</p>,
-  });
+  const DynamicMap = dynamic(() => import("../component/map"), { ssr: false });
   return (
     <div>
       <h3>☕️ 24시 카페 지도 </h3>
@@ -28,8 +26,9 @@ export default async function Cafe() {
       <div>
         5. <span className="bold">정보오류 및, 신규 24시 카페등록</span>은 <GoogleForm />을 이용해주세요!
       </div>
-
-      <DynamicMap />
+      <div>
+        <DynamicMap />
+      </div>
     </div>
   );
 }
