@@ -7,8 +7,7 @@ import dynamic from "next/dynamic";
 export const revalidate = 600; //! 페이지 캐시(cache) =페이지 자체를 저장해서 서버 부하 줄여주는 기능
 function Map() {
   /*global kakao*/
-  // const [Lng, setLng] = useState();
-  // const [Lat, setLat] = useState();
+
   const [data, setData] = useState();
   const [Lng, setLng] = useState();
   const [Lat, setLat] = useState();
@@ -23,15 +22,11 @@ function Map() {
         // success.
         setLat(position.coords.latitude);
         setLng(position.coords.longitude);
-        // setIsLoading(false);
       },
       (error) => {
         console.warn("Fail to fetch current location", error);
         setLat(37.557461);
         setLng(126.924772);
-        // setLat(33.451393); //! 임시 위치 ->제주도 카카오
-        // setLng(126.570738);
-        // setIsLoading(false);
         console.log(Lat, Lng);
       },
       {
@@ -85,7 +80,7 @@ function Map() {
           position: markerPosition,
           image: markerImage, // 마커이미지 설정
         });
-        // 마커가 지도 위에 표시되도록 설정합니다
+        // 마커가 지도 위에 표시되도록 설정합니다.
         marker.setMap(map);
 
         // var positions = [
@@ -119,7 +114,7 @@ function Map() {
           // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
           // 이벤트 리스너로는 클로저를 만들어 등록합니다
           // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-          kakao.maps.event.addListener(marker, "mouseover", makeOverListener(map, marker, infowindow));
+          // kakao.maps.event.addListener(marker, "mouseover", makeOverListener(map, marker, infowindow));// 호버시 정보표시
           kakao.maps.event.addListener(marker, "click", makeOverListener(map, marker, infowindow)); //? 좌클릭시 정보표시, 우클릭시 정보창 제거
           kakao.maps.event.addListener(marker, "rightclick", makeOutListener(infowindow));
         }
@@ -155,7 +150,7 @@ function Map() {
 
   return (
     <div className="map_center">
-      <div id="map" style={{ width: "85vw", height: "65vh" }}></div>
+      <div id="map" style={{ width: "90vw", height: "65vh" }}></div>
     </div>
   );
 }

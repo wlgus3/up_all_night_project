@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className="footer">
       <nav></nav>
-      <p>
+      <div>
         <span>Contact : pullhorizon@gmail.com</span>
         <br />
         <span>
@@ -20,7 +20,7 @@ export default function Footer() {
             <Image src={logoimg} className="web_logoimg" alt="logo image" height="50" width="50" />
           </span>
         </div>
-      </p>
+      </div>
     </div>
   );
 }
