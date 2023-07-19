@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import Image from "next/image";
 import logoimg from "/public/KakaoTalk_Photo_2023-05-11-17-29-42 002.png";
-
 import UseSessionHeader from "./header/useSessionHeader";
 export default function Header() {
   return (
