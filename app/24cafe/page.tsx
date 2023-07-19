@@ -3,11 +3,19 @@ import { connectDB } from "@/util/database";
 // import Map from "../component/map";
 import dynamic from "next/dynamic";
 import GoogleForm from "../component/googleForm";
+
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "UpperNightProject",
+  description: "빠른 성장을 위해서 심야영업 카페를 모아놓은 지도입니다.",
+};
+
 export default async function Cafe() {
   // const client = await connectDB;
   // const db = client.db("uppernight");
   // const result = await db.collection("community").find().toArray();
   // console.log(result);
+
   const DynamicMap = dynamic(() => import("../component/map"), { ssr: false });
   return (
     <div>

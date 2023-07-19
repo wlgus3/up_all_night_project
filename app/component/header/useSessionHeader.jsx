@@ -6,7 +6,7 @@ import LoginButton from "../LoginButton";
 import { getServerSession } from "next-auth";
 
 export default async function UseSessionHeader() {
-  const session = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근
+  const session = await getServerSession(authOptions); //!서버 컴포넌트에서 세션정보 접근을 위해서
   // console.log("session1", session);
 
   return (

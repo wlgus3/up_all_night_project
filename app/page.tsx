@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/database";
 import dynamic from "next/dynamic";
 import GoogleForm from "./component/googleForm";
+
 export default async function Home() {
   // const client = await connectDB;
   // const db = client.db("uppernight");
