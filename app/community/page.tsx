@@ -7,24 +7,20 @@ import Content from "./content";
 
 // import { useRouter } from "next/router";
 import { Metadata } from "next";
+import CommunityWrapper from "./CommunityWrapper";
+import Pagebox from "../component/Pagebox";
 export const metadata: Metadata = {
   title: "UpperNightProject",
   description: "밤샘몰입을 즐기며 빠른 성장을 추구하는 회원들과 소통하세요!",
 };
 
 export default async function Community() {
-  interface element {
-    date: string;
-    _id: string;
-    title: string;
-    content: string;
-    score: number;
-  }
-
   const client = await connectDB;
   const db = client.db("uppernight");
+  const postcount: number = await db.collection("community").count();
   const result = await db.collection("community").find().sort({ _id: -1 }).toArray();
   // console.log(result);
+  // console.log(postcount);
 
   return (
     <div>
@@ -37,7 +33,7 @@ export default async function Community() {
           </Link>
         </div>
       </div>
-      <div className="community">
+      {/* <div className="community">
         {result?.map((el, index) => {
           return (
             <Content
@@ -48,6 +44,8 @@ export default async function Community() {
           );
         })}
       </div>
+      <Pagebox postcount={postcount} /> */}
+      <CommunityWrapper postcount={postcount} result={result} />
     </div>
   );
 }

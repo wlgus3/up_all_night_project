@@ -13,8 +13,9 @@ interface contentDatas {
 }
 export default function Content(props: any) {
   // let router = useRouter();
+
+  //? Wed May 17 2023 17:21:37 GMT+0900 (대한민국 표준시) ->너무 길어서 GMT 이후로 생략
   let timeShortVer = String(props.element.date).split("GMT")[0];
-  //Wed May 17 2023 17:21:37 GMT+0900 (대한민국 표준시) ->너무 길어서 GMT 이후로 버림
 
   return (
     <div className="post">
@@ -30,10 +31,11 @@ export default function Content(props: any) {
         >
           {props.element.title}
         </div> */}
-        <div>작성시간: {timeShortVer}</div>
+        <div>✍🏻 {timeShortVer}</div>
         <div className="post_overflow">{props.element.content}</div>
         <div>추천: {props.element.score}</div>
       </div>
+      {/* 이미지 추가기능 아직 개발전 */}
       <div className="post_image">{/* <Image alt="image" src={props.element.image} height="10" width="10"></Image> */}</div>
     </div>
   );

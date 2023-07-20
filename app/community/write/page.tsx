@@ -33,7 +33,9 @@ export default async function CommunityDetail() {
           <textarea className="content_box" name="content" placeholder="내용" />
           {/* <div> 연결된 노력이 있다면 선택해주세요  </div> */}
           <br />
+          {/* ! 사진첨부기능 개발 전 */}
           <div>아래에 사진을 첨부하세요. (.jpg, .jpeg, .png 형식만 가능, 1MB 용량제한) </div>
+
           <input name="image" type="file" accept="image/jpg, image/jpeg, image/png" placeholder="사진을 첨부하세요" />
           <button type="submit">전송</button>
         </form>
