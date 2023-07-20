@@ -23,7 +23,7 @@ export default async function Community() {
 
   const client = await connectDB;
   const db = client.db("uppernight");
-  const result = await db.collection("community").find().toArray();
+  const result = await db.collection("community").find().sort({ _id: -1 }).toArray();
   // console.log(result);
 
   return (
