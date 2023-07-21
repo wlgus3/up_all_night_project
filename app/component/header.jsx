@@ -25,7 +25,7 @@ export default function Header() {
 
       <div className="top_nav">
         <Link href={"/24cafe"}> 24H cafe </Link>
-        <Link href={"/community"}>Community</Link>
+        <Link href={"/community/1"}>Community</Link>
       </div>
     </div>
   );
