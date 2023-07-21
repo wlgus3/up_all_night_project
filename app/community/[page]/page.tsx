@@ -75,8 +75,6 @@ export default async function Community({
           </Link>
         </div>
       </div>
-
-      {/* <Pagebox postcount={postcount} /> */}
     </div>
   );
 }
