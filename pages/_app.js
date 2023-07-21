@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       {/* Add the favicon */}
-      {/* 메타데이터 변경 */}
+      {/* 메타데이터 변경 -> 아래 방법은 NEXT 버전때문에 작동안됨 */}
       {/* <Head>
         <title>UpperNightProject</title> // 작동안함-> /app/layout.tsx
         <meta name="description" content="밤샘몰입을 즐기며 빠른 성장을 추구하는 당신을 위한 커뮤니티" />

@@ -35,7 +35,9 @@
     "app/component/Editor.js",
     "app/community/detail/error.js",
     "util/database.ts",
-    "app/component/header.jsx"
+    "app/component/header.jsx",
+    "pages/_app.js",
+    "app/community/CommunityWrapper.js"
   ],
   "exclude": ["node_modules"]
 }

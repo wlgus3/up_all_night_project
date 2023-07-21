@@ -145,12 +145,15 @@ Link {
   justify-content: space-between;
   border-radius: 5px;
   margin: 1vw 0.5vw;
+  min-height: 11vh;
 }
 .post_image {
   height: 10vw;
   width: 10vw;
-  background-color: rgb(255, 191, 73);
+  background-color: rgb(255, 227, 174);
+  /* background-color: rgb(255, 191, 73); */
   margin: 0.5vw 0.5vw;
+  border-radius: 5%;
 }
 /* 게시글 내용 길어졌을때 무한정 길어지는것 막고 ...으로 말줄임표시 */
 .post_overflow {
@@ -158,8 +161,11 @@ Link {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+.post_summary {
+  font-size: small;
 }
 
 /* ! 글쓰기 , 글 수정  */
@@ -223,4 +229,14 @@ button:hover {
   width: 75vw;
   height: 400px;
   margin-bottom: 50px;
+}
+
+.pagination_box {
+  display: flex;
+  flex-direction: row;
+  font-size: x-large;
+  justify-content: center;
+}
+.pagination_box div {
+  margin: 2vw;
 }
