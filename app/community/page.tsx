@@ -10,7 +10,7 @@ import Content from "./content";
 // import { useRouter } from "next/router";
 import { Metadata } from "next";
 import CommunityWrapper from "./CommunityWrapper";
-import Pagebox from "../component/Pagebox";
+
 export const metadata: Metadata = {
   title: "UpperNightProject",
   description: "밤샘몰입을 즐기며 빠른 성장을 추구하는 회원들과 소통하세요!",
@@ -55,8 +55,6 @@ export default async function Community() {
           );
         })}
       </div>
-
-      {/* <Pagebox postcount={postcount} /> */}
     </div>
   );
 }

@@ -5,7 +5,6 @@
 
 import { connectDB } from "@/util/database";
 import Content from "./content";
-import Pagebox from "../component/Pagebox";
 
 export default async function CommunityWrapper(props: any) {
   const client = await connectDB;
@@ -27,7 +26,6 @@ export default async function CommunityWrapper(props: any) {
           );
         })}
       </div>
-      <Pagebox postcount={props.postcount} />
     </div>
   );
 }
