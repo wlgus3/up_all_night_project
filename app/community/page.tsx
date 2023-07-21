@@ -1,3 +1,5 @@
+//! 현재는 사용하지 않음 pagenation 때문에 /community/[page]로 대신 구현
+
 import { MongoClient } from "mongodb";
 import { connectDB } from "@/util/database";
 import styles from "./page.module.css";
@@ -23,8 +25,8 @@ export default async function Community() {
     .collection("community")
     .find()
     .sort({ _id: -1 })
-    .skip((page - 1) * 2)
-    .limit(8)
+    .skip((page - 1) * 6)
+    .limit(6)
     .toArray();
 
   function pagecounter() {

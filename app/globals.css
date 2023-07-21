@@ -145,7 +145,7 @@ Link {
   justify-content: space-between;
   border-radius: 5px;
   margin: 1vw 0.5vw;
-  min-height: 9vh;
+  min-height: 11vh;
 }
 .post_image {
   height: 10vw;
@@ -161,8 +161,11 @@ Link {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+}
+.post_summary {
+  font-size: small;
 }
 
 /* ! 글쓰기 , 글 수정  */
@@ -229,4 +232,11 @@ button:hover {
 }
 
 .pagination_box {
+  display: flex;
+  flex-direction: row;
+  font-size: x-large;
+  justify-content: center;
+}
+.pagination_box div {
+  margin: 2vw;
 }

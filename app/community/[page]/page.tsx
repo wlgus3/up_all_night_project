@@ -60,17 +60,21 @@ export default async function Community({
           );
         })}
       </div>
-      {page != 1 ? (
-        <Link href={`community/${page - 1}`}>
-          <button>이전 페이지</button>
-        </Link>
-      ) : null}
-
-      <div> {page}</div>
-
-      <Link href={`community/${page + 1}`}>
-        <button>다음 페이지</button>
-      </Link>
+      <div className="pagination_box">
+        <div>
+          {page != 1 ? (
+            <Link href={`community/${page - 1}`}>
+              <button>이전 페이지</button>
+            </Link>
+          ) : null}
+        </div>
+        <div> {page}</div>
+        <div>
+          <Link href={`community/${page + 1}`}>
+            <button>다음 페이지</button>
+          </Link>
+        </div>
+      </div>
 
       {/* <Pagebox postcount={postcount} /> */}
     </div>

@@ -32,7 +32,7 @@ export default function Content(props: any) {
           {props.element.title}
         </div> */}
         <div>✍🏻 {timeShortVer}</div>
-        <div className="post_overflow">{props.element.content}</div>
+        <div className="post_overflow post_summary">{props.element.content}</div>
         <div>추천: {props.element.score}</div>
       </div>
       {/* 이미지 추가기능 아직 개발전 */}
