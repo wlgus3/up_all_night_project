@@ -1,11 +1,7 @@
 "use client";
 import type { NextPage } from "next";
 import Head from "next/head";
-// import { Container } from "@mui/material";
-// import tw, { styled } from "twin.macro";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
-// import Layout from "../components/Layout";
-// import Quill from "quill";
 const Quill = typeof window === "object" ? require("quill") : () => false;
 import "quill/dist/quill.snow.css";
 
@@ -13,21 +9,10 @@ type NextPageWithLayout<T> = NextPage<T> & {
   getLayout?: (page: ReactElement) => ReactElement;
 };
 
-// const MainContainer = styled(Container)(() => [
-//   tw`relative text-center min-h-full`,
-// ]);
-
-const EEditor: NextPageWithLayout<any> = () => {
+const NewPostbyQuill: NextPageWithLayout<any> = () => {
   const quillEditorRef = useRef<HTMLDivElement>(null);
   const quillRef = useRef<typeof Quill>(null);
-  // useEffect(() => {
-  //   if (quillEditorRef.current) {
-  //     const quill = new Quill(quillEditorRef.current, {
-  //       theme: "snow",
-  //       placeholder: "type something...",
-  //     });
-  //   }
-  // }, [quillEditorRef]);
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("default");
 
@@ -61,21 +46,14 @@ const EEditor: NextPageWithLayout<any> = () => {
         <input className="title_box" name="title" placeholder="제목" onChange={titleChange} />
 
         <div>어떻게 성장할까요?</div>
-
-        <Head>
-          <title>Editor</title>
-        </Head>
-        <main>
-          <div
-            ref={quillEditorRef}
-            // onChange={() => {
-            //   var delta = quillRef.current && quillRef.current.getContents();
-            //   // console.log(delta);
-            //   // setText(delta);
-            // }}
-          ></div>
-        </main>
-
+        <div className="Quill_editor">
+          <Head>
+            <title>Quill Editor</title>
+          </Head>
+          <main>
+            <div ref={quillEditorRef}></div>
+          </main>
+        </div>
         {/* <button
             onClick={() => {
               //quillRef로 접근.
@@ -102,8 +80,8 @@ const EEditor: NextPageWithLayout<any> = () => {
     </div>
   );
 };
-export default EEditor;
+export default NewPostbyQuill;
 
-EEditor.getLayout = function getLayout(page: ReactElement) {
+NewPostbyQuill.getLayout = function getLayout(page: ReactElement) {
   return <div>{page}</div>;
 };

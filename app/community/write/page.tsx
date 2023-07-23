@@ -6,7 +6,9 @@ import { useState, useEffect, useRef } from "react";
 
 import dynamic from "next/dynamic";
 // import QuillEditor from "../../component/Editor";
-import EEditor from "@/app/component/QuillEditor";
+// import NewPostbyQuill from "./community/write/QuillEditor";
+import NewPostbyQuill from "./QuillEditor";
+
 export default async function CommunityDetail() {
   // const [html, setHtml] = useState("");
 
@@ -25,7 +27,7 @@ export default async function CommunityDetail() {
       <h2>커뮤니티 글쓰기</h2>
 
       <div className="post_write">
-        <EEditor></EEditor>
+        <NewPostbyQuill />
 
         {/* <EEditor onChange={() => contentChange(event)}></EEditor> */}
         {/* <QuillEditor /> */}
