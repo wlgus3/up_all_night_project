@@ -1,3 +1,4 @@
+"use client";
 import type { NextPage } from "next";
 import Head from "next/head";
 // import { Container } from "@mui/material";
@@ -27,6 +28,23 @@ const EEditor: NextPageWithLayout<any> = () => {
   //     });
   //   }
   // }, [quillEditorRef]);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("default");
+
+  function titleChange(event) {
+    setTitle(event.target.value);
+  }
+  function contentChange(delta) {
+    console.log(delta);
+    setContent(delta);
+  }
+
+  function postFunction(delta) {
+    console.log(title);
+    console.log(content);
+    const contentdata = delta;
+    fetch("/api/post/new", { method: "POST", body: JSON.stringify({ title: title, content: contentdata }) });
+  }
   useEffect(() => {
     //quillRef.current 할당
     quillRef.current = new Quill(quillEditorRef.current, {
@@ -37,29 +55,28 @@ const EEditor: NextPageWithLayout<any> = () => {
 
   return (
     <div>
-      <form action="/api/post/new" method="POST">
+      <div>
         {/* 키이름은 name ='~' , 칸 설명은 placeholder='~' */}
         <div>오늘의 노력을 간략하게 소개해주세요.</div>
-        <input className="title_box" name="title" placeholder="제목" />
+        <input className="title_box" name="title" placeholder="제목" onChange={titleChange} />
+
         <div>어떻게 성장할까요?</div>
-        <div className="CKeditor">
-          <Head>
-            <title>Editor</title>
-          </Head>
-          <input>
-            <main>
-              <div
-                ref={quillEditorRef}
-                onChange={() => {
-                  var delta = quillRef.current && quillRef.current.getContents();
-                  // console.log(delta);
-                  // setText(delta);
-                }}
-                name="content"
-              ></div>
-            </main>
-          </input>
-          {/* <button
+
+        <Head>
+          <title>Editor</title>
+        </Head>
+        <main>
+          <div
+            ref={quillEditorRef}
+            // onChange={() => {
+            //   var delta = quillRef.current && quillRef.current.getContents();
+            //   // console.log(delta);
+            //   // setText(delta);
+            // }}
+          ></div>
+        </main>
+
+        {/* <button
             onClick={() => {
               //quillRef로 접근.
               var delta = quillRef.current && quillRef.current.getContents();
@@ -70,10 +87,18 @@ const EEditor: NextPageWithLayout<any> = () => {
           >
             저장
           </button> */}
-        </div>
 
-        <button type="submit">전송</button>
-      </form>
+        <button
+          onClick={() => {
+            var delta = quillRef.current && quillRef.current.getContents();
+
+            // contentChange(delta);
+            postFunction(delta);
+          }}
+        >
+          전송
+        </button>
+      </div>
     </div>
   );
 };
