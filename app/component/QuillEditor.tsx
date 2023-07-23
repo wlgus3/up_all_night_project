@@ -31,15 +31,15 @@ const EEditor: NextPageWithLayout<any> = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("default");
 
-  function titleChange(event) {
+  function titleChange(event: any) {
     setTitle(event.target.value);
   }
-  function contentChange(delta) {
+  function contentChange(delta: any) {
     console.log(delta);
     setContent(delta);
   }
 
-  function postFunction(delta) {
+  function postFunction(delta: any) {
     console.log(title);
     console.log(content);
     const contentdata = delta;

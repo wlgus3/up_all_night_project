@@ -21,6 +21,19 @@ export default async function CommunityDetail(props: ContentProps) {
   console.log(result);
   // console.log(props);
   let timeShortVer = String(result.date).split("GMT")[0];
+  var QuillDeltaToHtmlConverter = require("quill-delta-to-html").QuillDeltaToHtmlConverter;
+
+  // TypeScript / ES6:
+  // import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html';
+
+  var deltaOps = [{ insert: "Hello\n" }, { insert: "This is colorful", attributes: { color: "#f00" } }];
+
+  var cfg = {};
+  console.log(JSON.parse(result.content));
+  var converter = new QuillDeltaToHtmlConverter(JSON.parse(result.content).ops, cfg);
+
+  var html = converter.convert();
+
   if (result === null) {
     return NotFound();
   } else {
@@ -31,11 +44,12 @@ export default async function CommunityDetail(props: ContentProps) {
           <div className="post_detail_info">
             <h3>
               제목: {result.title}
-              <div className="right">
+              {/* 에디터 넣고 일단 수정하기 기능은 잠시 제거  */}
+              {/* <div className="right">
                 <Link href={"/community/edit/" + result._id} className="list-btn">
                   <button>수정하기 ✏️</button>
                 </Link>
-              </div>
+              </div> */}
             </h3>
 
             <div>
@@ -44,8 +58,10 @@ export default async function CommunityDetail(props: ContentProps) {
             </div>
           </div>
           <div className="post_detail_content">
-            <div>{result.content} </div>
-            {/* <div>추천 : {result.score}</div> */}
+            {/* <div>{result.content} </div> */}
+
+            {/* <div>{html}</div> */}
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </div>
         <Comment parent={result._id} />
