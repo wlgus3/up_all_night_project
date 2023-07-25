@@ -22,7 +22,7 @@ export default async function Community({
   const client = await connectDB;
   const db = client.db("uppernight");
   const postcount: number = await db.collection("community").count();
-  // let page = 1; //일단 초기페이지?
+
   console.log(params);
   console.log(searchParams);
   let page = Number(params.page);
