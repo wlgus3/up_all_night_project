@@ -72,7 +72,7 @@ export default function Comment(props: commentProps) {
               .then((res) => {
                 alert(res);
               })
-              .then(() => router.replace("/community"));
+              .then(() => router.replace("/community/1"));
             //! 원래는 reload()를 하면서 코멘트 달린 게 바로 보여야 하는데, 아직 이유는 모르겠으나 안됨... 일단 /community 페이지로 나가도록 구현
             // .then(() => router.replace("/community/detail/" + props.parent));
             // .then(() => router.reload());
