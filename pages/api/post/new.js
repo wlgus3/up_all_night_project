@@ -22,9 +22,9 @@ export default async function handler(req, res) {
     return res.status(400).json("로그인 전에는 글 게시가 불가능합니다.");
   }
   if (req.method == "POST") {
-    if (req.body.title == "") {
+    if (JSON.parse(req.body).title == "") {
       return res.status(500).json("제목(title) 미작성");
-    } else if (req.body.content == "") {
+    } else if (JSON.parse(req.body).content == "") {
       return res.status(500).json("내용(content) 미작성");
     }
     try {
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         email: session.user.email,
         profileurl: session.user.image,
       }); //추천수와 날짜 추가해서 전송
-      res.redirect(302, "/community");
+      res.redirect(302, "/community/1");
     } catch (error) {
       res.status(500).json("서버오류");
     }

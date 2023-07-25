@@ -19,10 +19,6 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
   function titleChange(event: any) {
     setTitle(event.target.value);
   }
-  function contentChange(delta: any) {
-    console.log(delta);
-    setContent(delta);
-  }
 
   function postFunction(delta: any) {
     console.log(title);
@@ -46,6 +42,7 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
         <input className="title_box" name="title" placeholder="제목" onChange={titleChange} />
 
         <div>어떻게 성장할까요?</div>
+
         <div className="Quill_editor">
           <Head>
             <title>Quill Editor</title>
@@ -54,23 +51,11 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
             <div ref={quillEditorRef}></div>
           </main>
         </div>
-        {/* <button
-            onClick={() => {
-              //quillRef로 접근.
-              var delta = quillRef.current && quillRef.current.getContents();
-              console.log("델타", delta);
-
-              // setText(delta);
-            }}
-          >
-            저장
-          </button> */}
 
         <button
           onClick={() => {
+            // quillRef로 접근
             var delta = quillRef.current && quillRef.current.getContents();
-
-            // contentChange(delta);
             postFunction(delta);
           }}
         >
