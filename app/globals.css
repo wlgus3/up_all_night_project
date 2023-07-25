@@ -161,11 +161,11 @@ Link {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 .post_summary {
-  font-size: small;
+  font-size: smaller;
 }
 
 /* ! 글쓰기 , 글 수정  */

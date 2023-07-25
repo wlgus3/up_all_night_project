@@ -21,8 +21,7 @@ export default async function CommunityDetail(props: ContentProps) {
   console.log(result);
   let timeShortVer = String(result.date).split("GMT")[0];
 
-  //! 아래는 delta 형식의 content를 html 형식으로 변환하기 위한 코드
-
+  //! 아래는 result.content의 delta 형식을 html 형식으로 변환하기 위한 코드
   var html = undefined;
   if (result.content != undefined) {
     if (result.content[0] !== "{" || result.content == "") {

@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         // let result = db.collection("community").updateOne({ ...req.body, score: 0, date: today });
         console.log(result);
 
-        res.redirect(302, "/community");
+        res.redirect(302, "/community/1");
       } catch (error) {
         res.status(500).json("edit 서버오류");
       }

@@ -28,7 +28,7 @@ export default function DeleteButton(props: deleteBtnProps) {
               alert(res);
             })
             .then(() => {
-              location.href = "/community";
+              location.href = "/community/1";
             })
             .catch((error) => {
               //인터넷문제 등으로 실패시 실행할코드
