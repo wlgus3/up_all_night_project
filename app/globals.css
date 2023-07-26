@@ -144,16 +144,22 @@ Link {
   flex-direction: row;
   justify-content: space-between;
   border-radius: 5px;
-  margin: 1vw 0.5vw;
-  min-height: 11vh;
+  margin: 1vh 0.5vw;
+  min-height: 14vh;
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 }
 .post_image {
-  height: 10vw;
-  width: 10vw;
+  height: 13vh;
+  width: 13vh;
   background-color: rgb(255, 227, 174);
   /* background-color: rgb(255, 191, 73); */
   margin: 0.5vw 0.5vw;
   border-radius: 5%;
+  @media (max-width: 768px) {
+    /* display: none; */
+  }
 }
 /* 게시글 내용 길어졌을때 무한정 길어지는것 막고 ...으로 말줄임표시 */
 .post_overflow {
@@ -161,8 +167,11 @@ Link {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  @media (max-width: 768px) {
+    max-width: 65vw;
+  }
 }
 .post_summary {
   font-size: smaller;

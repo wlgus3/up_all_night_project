@@ -14,6 +14,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "UpperNightProject",
   description: "밤샘몰입을 즐기며 빠른 성장을 추구하는 당신을 위한 커뮤니티",
+  openGraph: {
+    title: "UpperNightProject-OG",
+    description: "밤샘몰입을 즐기며 빠른 성장을 추구하는 당신을 위한 커뮤니티-OG",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
