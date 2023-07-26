@@ -8,6 +8,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "UpperNightProject",
   description: "빠른 성장을 위해서 심야영업 카페를 모아놓은 지도입니다.",
+  openGraph: {
+    title: "UpperNightProject",
+    description: "빠른 성장을 위해서 심야영업 카페를 모아놓은 지도입니다.",
+  },
 };
 
 export default async function Cafe() {
