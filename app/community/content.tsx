@@ -23,7 +23,10 @@ export default function Content(props: any) {
     if (props.element.content[0] !== "{" || props.element.content == "") {
       //? 예전에 작성했던 글이 quill의 delta 형식이 아니기 때문에  에러나는 것 방지하기 위해서 분기
       html = undefined;
+      console.log(1);
     } else {
+      console.log(3);
+
       var QuillDeltaToHtmlConverter = require("quill-delta-to-html").QuillDeltaToHtmlConverter;
       var cfg = {};
       // console.log(JSON.parse(result.content));
@@ -53,7 +56,6 @@ export default function Content(props: any) {
 
     return pureText;
   }
-  console.log(html);
 
   return (
     <div className="post">

@@ -9,9 +9,8 @@ export default async function handler(req, res) {
   let session = await getServerSession(req, res, authOptions); //서버기능 안에서 갖다쓸 때에는 req, res도 함께 가져다 써야함
 
   console.log(req.body);
-
-  console.log(JSON.parse(req.body).title);
   console.log(JSON.parse(req.body).content);
+  console.log(JSON.parse(req.body).content.ops);
 
   // console.log(req.body);
   // req.body.author = session.user.name;
@@ -24,9 +23,10 @@ export default async function handler(req, res) {
   if (req.method == "POST") {
     if (JSON.parse(req.body).title == "") {
       return res.status(500).json("제목(title) 미작성");
-    } else if (JSON.parse(req.body).content == "") {
-      return res.status(500).json("내용(content) 미작성");
     }
+    //  else if (JSON.parse(req.body).content.ops == '[ { insert: "\n" } ]') {
+    //   return res.status(500).json("내용(content) 미작성");
+    // }
     try {
       let result = db.collection("community").insertOne({
         title: String(JSON.parse(req.body).title),

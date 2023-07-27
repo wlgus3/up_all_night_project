@@ -26,9 +26,8 @@ export default async function Community({
   const client = await connectDB;
   const db = client.db("uppernight");
   const postcount: number = await db.collection("community").count();
-
-  console.log(params);
-  console.log(searchParams);
+  console.log(params.page);
+  //페이지네이션을 어떤식으로 구성할지 설정
   let page = Number(params.page);
   const result = await db
     .collection("community")
@@ -38,10 +37,6 @@ export default async function Community({
     .limit(6)
     .toArray();
 
-  function pagecounter() {
-    page += 1;
-    console.log(page);
-  }
   return (
     <div>
       <h2> 노력 자랑 게시판</h2>

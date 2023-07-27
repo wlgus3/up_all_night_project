@@ -24,7 +24,9 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
     console.log(title);
     console.log(content);
     const contentdata = delta;
-    fetch("/api/post/new", { method: "POST", body: JSON.stringify({ title: title, content: contentdata }) });
+    fetch("/api/post/new", { method: "POST", body: JSON.stringify({ title: title, content: contentdata }) })
+      .then((res) => res.json())
+      .then((res) => alert(res));
   }
   useEffect(() => {
     //quillRef.current 할당
