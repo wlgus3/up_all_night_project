@@ -4,6 +4,7 @@ import Head from "next/head";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 const Quill = typeof window === "object" ? require("quill") : () => false;
 import "quill/dist/quill.snow.css";
+import { useRouter } from "next/navigation";
 
 type NextPageWithLayout<T> = NextPage<T> & {
   getLayout?: (page: ReactElement) => ReactElement;
@@ -20,13 +21,16 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
     setTitle(event.target.value);
   }
 
+  const router = useRouter();
   function postFunction(delta: any) {
     console.log(title);
     console.log(content);
     const contentdata = delta;
     fetch("/api/post/new", { method: "POST", body: JSON.stringify({ title: title, content: contentdata }) })
       .then((res) => res.json())
+      // .then((res) => console.log(res))
       .then((res) => alert(res));
+    // router.push("/community/1");//!라우팅은 되지만 리로드가 안되어서 최신 데이터가 안옴
   }
   useEffect(() => {
     //quillRef.current 할당

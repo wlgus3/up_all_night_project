@@ -1,7 +1,5 @@
 "use client";
 
-import { redirect } from "next/dist/server/api-utils";
-
 interface deleteBtnProps {
   _id: string;
 }

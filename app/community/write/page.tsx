@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 
 import dynamic from "next/dynamic";
 
-import NewPostbyQuill from "./QuillEditor";
+import NewPostbyQuill from "./NewPostbyQuill";
 
 export default async function CommunityDetail() {
   // const [html, setHtml] = useState("");
