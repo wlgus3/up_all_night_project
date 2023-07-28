@@ -5,8 +5,7 @@ import { connectDB } from "@/util/database";
 import { useState, useEffect, useRef } from "react";
 
 import dynamic from "next/dynamic";
-// import QuillEditor from "../../component/Editor";
-// import NewPostbyQuill from "./community/write/QuillEditor";
+
 import NewPostbyQuill from "./QuillEditor";
 
 export default async function CommunityDetail() {
