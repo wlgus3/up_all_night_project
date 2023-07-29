@@ -57,17 +57,18 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
             <div ref={quillEditorRef}></div>
           </main>
         </div>
-        <input
+        {/* <input
           type="file"
           accept="image/*"
           onChange={async (event: any) => {
             let file = event.target.files[0];
             let filename = encodeURIComponent(file.name);
+            console.log(filename);
             let res = await fetch("/api/post/image?file=" + filename);
             res = await res.json();
             console.log(res);
           }}
-        />
+        /> */}
         {/* 선택이미지 보여주려면 1.createObjectURL메서드 쓰거나 2.이미지를 바로 업로드해버리거나->Presingned URL방식으로 하면 서버쪽에서 비효율문제 없음 */}
         <button
           onClick={() => {
