@@ -11,11 +11,11 @@ export default async function handler(req, res) {
   let session = await getServerSession(req, res, authOptions); //서버기능 안에서 갖다쓸 때에는 req, res도 함께 가져다 써야함
   console.log(session);
   console.log(req.body);
-  console.log(String(req.body.content).length);
   console.log(JSON.parse(req.body).parent);
   req.body = JSON.parse(req.body);
+  let data = {};
   if (session) {
-    return (data = { content: req.body.content, parent: new ObjectID(req.body.parent), date: today, author: session.user.email });
+    data = { content: req.body.content, parent: new ObjectID(req.body.parent), date: today, author: session.user.email };
   }
   if (req.method == "POST") {
     if (session == null) {

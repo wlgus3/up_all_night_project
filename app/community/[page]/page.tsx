@@ -39,9 +39,9 @@ export default async function Community({
 
   return (
     <div>
-      <h2> 노력 자랑 게시판</h2>
+      <h2> 👏 오늘 나의 노력을 마음껏 자랑해주세요! </h2>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div> 오늘의 노력에 대해서 자랑해주세요!</div>
+        <div> 🔥 열정적으로 보낸 오늘 하루를 공유하고, 서로 격려하는 게시판입니다.</div>
         <div className="write_button">
           <Link href="/community/write">
             <button>글 작성하기 ✏️ </button>

@@ -62,7 +62,7 @@ export default function Content(props: any) {
 
   return (
     <div className="post">
-      <div>
+      <div className="post_list_information">
         <Link href={`community/detail/${props.element._id}`} prefetch={false}>
           <div className="post_overflow">{props.element.title}</div>
         </Link>
