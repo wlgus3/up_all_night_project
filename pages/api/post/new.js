@@ -9,14 +9,10 @@ export default async function handler(req, res) {
   let today = new Date(); //!날짜 보내기
   let session = await getServerSession(req, res, authOptions); //서버기능 안에서 갖다쓸 때에는 req, res도 함께 가져다 써야함
 
-  console.log(req.body);
-  console.log(JSON.parse(req.body).content);
-  console.log(JSON.parse(req.body).content.ops);
-
   // console.log(req.body);
-  // req.body.author = session.user.name;
-  // req.body.email = session.user.email;
-  // console.log(req.body);
+  // console.log(JSON.parse(req.body).content);
+  // console.log(JSON.parse(req.body).content.ops);
+  console.log(JSON.parse(req.body).imageurl);
 
   if (!session) {
     return res.status(400).json("로그인 전에는 글 게시가 불가능합니다.");
@@ -32,6 +28,7 @@ export default async function handler(req, res) {
       let result = db.collection("community").insertOne({
         title: String(JSON.parse(req.body).title),
         content: JSON.stringify(JSON.parse(req.body).content),
+        imageurl: String(JSON.parse(req.body).imageurl),
         score: 0,
         date: today,
         author: session.user.name,

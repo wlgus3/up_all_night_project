@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
   try {
     // Pre-Signed POST 생성
-    const presignedPostData = await s3.createPresignedPost(params);
+    const presignedPostData = s3.createPresignedPost(params);
 
     // 클라이언트에게 전달할 데이터를 응답으로 보냅니다.
     res.status(200).json(presignedPostData);

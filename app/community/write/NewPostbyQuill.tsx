@@ -16,6 +16,7 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("default");
+  const [imageSrcUrl, setImageSrcUrl] = useState("");
 
   function titleChange(event: any) {
     setTitle(event.target.value);
@@ -25,8 +26,9 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
   function postFunction(delta: any) {
     console.log(title);
     console.log(content);
+    console.log(imageSrcUrl);
     const contentdata = delta;
-    fetch("/api/post/new", { method: "POST", body: JSON.stringify({ title: title, content: contentdata }) })
+    fetch("/api/post/new", { method: "POST", body: JSON.stringify({ title: title, content: contentdata, imageurl: imageSrcUrl }) })
       .then((res) => res.json())
       // .then((res) => console.log(res))
       .then((res) => alert(res));
@@ -40,7 +42,13 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
     });
   }, []);
 
-  let [src, setSrc] = useState("");
+  //! presigned url response type
+  interface PresignedPostResponse {
+    url: string;
+    fields: {
+      [key: string]: string;
+    };
+  }
   return (
     <div>
       <div>
@@ -65,28 +73,30 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
             let file = event.target.files[0];
             let filename = encodeURIComponent(file.name);
             console.log(filename);
-            let res = await fetch("/api/post/image?file=" + filename);
-            res = await res.json();
+            let resBeforeJson: Response = await fetch("/api/post/image?file=" + filename);
+            let res: PresignedPostResponse = await resBeforeJson.json();
             console.log(res);
             //S3 업로드
 
             const formData = new FormData();
             Object.entries({ ...res.fields, file }).forEach(([key, value]) => {
-              formData.append(key, value);
+              formData.append(key, value as string | Blob);
             });
-            let 업로드결과 = await fetch(res.url, {
+            let ImageUploadResult = await fetch(res.url, {
               method: "POST",
               body: formData,
             });
-            console.log(업로드결과);
+            console.log(ImageUploadResult);
 
-            if (업로드결과.ok) {
-              setSrc(업로드결과.url + "/" + filename);
+            if (ImageUploadResult.ok) {
+              setImageSrcUrl(ImageUploadResult.url + "/" + filename);
             } else {
               console.log("실패");
             }
           }}
         />
+        <img src={imageSrcUrl} />
+        <div></div>
         {/* 선택이미지 보여주려면 1.createObjectURL메서드 쓰거나 2.이미지를 바로 업로드해버리거나->Presingned URL방식으로 하면 서버쪽에서 비효율문제 없음 */}
         <button
           onClick={() => {

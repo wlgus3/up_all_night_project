@@ -58,6 +58,9 @@ export default async function CommunityDetail(props: ContentProps) {
               <div>작성자 : {result.author}</div>
               <div>작성일시 : {timeShortVer}</div>
             </div>
+            <div className="detail_image">
+              <img src={result.imageurl} />
+            </div>
           </div>
           <div className="post_detail_content">
             {/* {html!=undefined?<div dangerouslySetInnerHTML={{ __html: html }} ><div/>?<div></div>} */}
