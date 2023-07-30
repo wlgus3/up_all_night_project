@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import Image from "next/image";
-import noimage from "/public/Uppernight_noimage.png";
+import noimage from "/public/Uppernight_Noimage.png";
 interface contentDatas {
   element: {
     date: string;
