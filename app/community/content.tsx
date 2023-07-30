@@ -1,7 +1,8 @@
 // "use client";
 import Link from "next/link";
 import { useEffect } from "react";
-
+import Image from "next/image";
+import noimage from "/public/Uppernight_noimage.png";
 interface contentDatas {
   element: {
     date: string;
@@ -9,6 +10,7 @@ interface contentDatas {
     title: string;
     content: string;
     score: number;
+    imageurl: string;
   };
 }
 export default function Content(props: any) {
@@ -80,7 +82,13 @@ export default function Content(props: any) {
         {/* <div>추천: {props.element.score}</div> */}
       </div>
       {/* 이미지 추가기능 아직 개발전 */}
-      <div className="post_image">{/* <Image alt="image" src={props.element.image} height="10" width="10"></Image> */}</div>
+      <div className="post_list_image">
+        {props.element.imageurl ? (
+          <img alt="detail_image" src={props.element.imageurl} width="100%"></img>
+        ) : (
+          <Image alt="detail_image" style={{ width: "100%", height: "100%" }} src={noimage} />
+        )}
+      </div>
     </div>
   );
 }
