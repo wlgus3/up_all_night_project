@@ -40,6 +40,7 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
     });
   }, []);
 
+  let [src, setSrc] = useState("");
   return (
     <div>
       <div>
@@ -57,7 +58,7 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
             <div ref={quillEditorRef}></div>
           </main>
         </div>
-        {/* <input
+        <input
           type="file"
           accept="image/*"
           onChange={async (event: any) => {
@@ -67,8 +68,25 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
             let res = await fetch("/api/post/image?file=" + filename);
             res = await res.json();
             console.log(res);
+            //S3 업로드
+
+            const formData = new FormData();
+            Object.entries({ ...res.fields, file }).forEach(([key, value]) => {
+              formData.append(key, value);
+            });
+            let 업로드결과 = await fetch(res.url, {
+              method: "POST",
+              body: formData,
+            });
+            console.log(업로드결과);
+
+            if (업로드결과.ok) {
+              setSrc(업로드결과.url + "/" + filename);
+            } else {
+              console.log("실패");
+            }
           }}
-        /> */}
+        />
         {/* 선택이미지 보여주려면 1.createObjectURL메서드 쓰거나 2.이미지를 바로 업로드해버리거나->Presingned URL방식으로 하면 서버쪽에서 비효율문제 없음 */}
         <button
           onClick={() => {
