@@ -1,6 +1,7 @@
 import { connectDB } from "@/util/database";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
+
 export default async function handler(req, res) {
   const client = await connectDB;
   const db = client.db("uppernight");
@@ -8,14 +9,10 @@ export default async function handler(req, res) {
   let today = new Date(); //!날짜 보내기
   let session = await getServerSession(req, res, authOptions); //서버기능 안에서 갖다쓸 때에는 req, res도 함께 가져다 써야함
 
-  console.log(req.body);
-  console.log(JSON.parse(req.body).content);
-  console.log(JSON.parse(req.body).content.ops);
-
   // console.log(req.body);
-  // req.body.author = session.user.name;
-  // req.body.email = session.user.email;
-  // console.log(req.body);
+  // console.log(JSON.parse(req.body).content);
+  // console.log(JSON.parse(req.body).content.ops);
+  console.log(JSON.parse(req.body).imageurl);
 
   if (!session) {
     return res.status(400).json("로그인 전에는 글 게시가 불가능합니다.");
@@ -31,13 +28,14 @@ export default async function handler(req, res) {
       let result = db.collection("community").insertOne({
         title: String(JSON.parse(req.body).title),
         content: JSON.stringify(JSON.parse(req.body).content),
+        imageurl: String(JSON.parse(req.body).imageurl),
         score: 0,
         date: today,
         author: session.user.name,
         email: session.user.email,
         profileurl: session.user.image,
       }); //추천수와 날짜 추가해서 전송
-      res.redirect(302, "/community/1");
+      res.status(302).json("글 게시 완료").redirect("/naver.com");
     } catch (error) {
       res.status(500).json("서버오류");
     }

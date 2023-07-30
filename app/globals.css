@@ -150,13 +150,14 @@ Link {
     width: 95%;
   }
 }
-.post_image {
+.post_list_image {
   height: 13vh;
   width: 13vh;
   background-color: rgb(255, 227, 174);
   /* background-color: rgb(255, 191, 73); */
   margin: 0.5vw 0.5vw;
   border-radius: 5%;
+  overflow: hidden;
   @media (max-width: 768px) {
     /* display: none; */
   }

@@ -1,7 +1,8 @@
 // "use client";
 import Link from "next/link";
 import { useEffect } from "react";
-
+import Image from "next/image";
+import noimage from "/public/Uppernight_Noimage.png";
 interface contentDatas {
   element: {
     date: string;
@@ -9,6 +10,7 @@ interface contentDatas {
     title: string;
     content: string;
     score: number;
+    imageurl: string;
   };
 }
 export default function Content(props: any) {
@@ -23,15 +25,16 @@ export default function Content(props: any) {
     if (props.element.content[0] !== "{" || props.element.content == "") {
       //? 예전에 작성했던 글이 quill의 delta 형식이 아니기 때문에  에러나는 것 방지하기 위해서 분기
       html = undefined;
-      console.log(1);
     } else {
-      console.log(3);
-
       var QuillDeltaToHtmlConverter = require("quill-delta-to-html").QuillDeltaToHtmlConverter;
       var cfg = {};
-      // console.log(JSON.parse(result.content));
       var converter = new QuillDeltaToHtmlConverter(JSON.parse(props.element.content).ops, cfg);
       html = converter.convert();
+      console.log(html);
+      if (html == "<p><br/></p>") {
+        //delta형식 비어있을 때 (내용없을때) html로 변환하면 "<p><br/></p>" 됨
+        html = "내용없음";
+      }
       html = removeHtmlTags(html);
     }
   }
@@ -79,7 +82,13 @@ export default function Content(props: any) {
         {/* <div>추천: {props.element.score}</div> */}
       </div>
       {/* 이미지 추가기능 아직 개발전 */}
-      <div className="post_image">{/* <Image alt="image" src={props.element.image} height="10" width="10"></Image> */}</div>
+      <div className="post_list_image">
+        {props.element.imageurl ? (
+          <img alt="detail_image" src={props.element.imageurl} width="100%"></img>
+        ) : (
+          <Image alt="detail_image" style={{ width: "100%", height: "100%" }} src={noimage} />
+        )}
+      </div>
     </div>
   );
 }
