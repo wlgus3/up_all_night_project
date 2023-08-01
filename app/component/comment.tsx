@@ -26,24 +26,26 @@ export default function Comment(props: commentProps) {
   }, []);
   return (
     //form 태그 쓰면 새로고침되기에 안씀a
-    <div>
+    <div className="comment_box">
       <h3>댓글</h3>
 
-      {data.length > 0
-        ? data.map(
-            (
-              el: {
-                content: string;
-                author: string;
-              },
-              idx
-            ) => (
-              <p key={idx}>
-                {el.content} ...from: {el.author}
-              </p>
-            )
+      {data.length > 0 ? (
+        data.map(
+          (
+            el: {
+              content: string;
+              author: string;
+            },
+            idx
+          ) => (
+            <p key={idx}>
+              {el.content} ...from: {el.author}
+            </p>
           )
-        : "댓글없음"}
+        )
+      ) : (
+        <p>댓글없음</p>
+      )}
       <div>
         <input
           onChange={(e) => {

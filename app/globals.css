@@ -139,7 +139,7 @@ Link {
   display: flex;
   background-color: rgb(255, 243, 208);
   width: 46%;
-  border: solid 1px black;
+  border: solid 1px rgb(196, 136, 40);
   padding: 0.5vw 1vw;
   flex-direction: row;
   justify-content: space-between;
@@ -150,6 +150,15 @@ Link {
     width: 95%;
   }
 }
+.post_list_information {
+}
+.post_list_information :any-link {
+  /* text-decoration: none; */
+  /* color: rgb(2, 2, 2); */
+
+  font-weight: 600;
+}
+/* 글 목록에 작게 보이는 이미지 */
 .post_list_image {
   height: 13vh;
   width: 13vh;
@@ -229,8 +238,9 @@ button:hover {
   justify-content: center;
 }
 
-/* !포스트 디테일 페이지  */
+/* !포스트 Detail 페이지  */
 .post_detail {
+  justify-content: space-around;
   width: 85vw;
   max-width: 80%;
   display: flex;
@@ -241,16 +251,38 @@ button:hover {
   max-width: 85vw;
 }
 .post_detail_info {
+  margin: 1vh 0;
+}
+.post_detail_info h2 {
+  font-weight: 900;
 }
 .post_detail_content {
+  border-top: #fbcc80 1px solid;
+  border-bottom: #fbcc80 1px solid;
+  padding: 1vh 0;
+  margin: 1vh 0;
 }
-
+.post_detail_image {
+  margin: 1vh;
+  max-width: 80vw;
+}
+.post_detail_image img {
+  min-width: 50%;
+  max-width: 90%;
+}
+.comment_box {
+}
+.comment_box p {
+  color: rgb(96, 96, 97);
+}
+/*! Quill  */
 .quill_Editor {
   width: 75vw;
   height: 400px;
   margin-bottom: 50px;
 }
 
+/* ! Pagenation */
 .pagination_box {
   display: flex;
   flex-direction: row;

@@ -41,11 +41,11 @@ export default async function CommunityDetail(props: ContentProps) {
   } else {
     return (
       <div>
-        <h2>노력 자랑 게시판 </h2>
+        <h2>👏 오늘의 [ {result.author} ]님의 노력을 칭찬해주세요! 👏</h2>
         <article className="post_detail">
           <div className="post_detail_info">
             <h2>
-              제목: {result.title}
+              {result.title}
               {/* 에디터 넣고 일단 수정하기 기능은 잠시 제거  */}
               {/* <div className="right">
                 <Link href={"/community/edit/" + result._id} className="list-btn">
@@ -58,14 +58,14 @@ export default async function CommunityDetail(props: ContentProps) {
               <div>작성자 : {result.author}</div>
               <div>작성일시 : {timeShortVer}</div>
             </div>
-            <div className="detail_image">
-              <img src={result.imageurl} />
-            </div>
           </div>
           <div className="post_detail_content">
             {/* {html!=undefined?<div dangerouslySetInnerHTML={{ __html: html }} ><div/>?<div></div>} */}
             {html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : result.content}
             {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
+            <div className="post_detail_image">
+              <img src={result.imageurl} />
+            </div>
           </div>
         </article>
         <Comment parent={result._id} />
