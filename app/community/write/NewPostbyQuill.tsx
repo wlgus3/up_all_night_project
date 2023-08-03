@@ -4,7 +4,7 @@ import Head from "next/head";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 const Quill = typeof window === "object" ? require("quill") : () => false;
 import "quill/dist/quill.snow.css";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 type NextPageWithLayout<T> = NextPage<T> & {
   getLayout?: (page: ReactElement) => ReactElement;
@@ -22,7 +22,7 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
     setTitle(event.target.value);
   }
 
-  const router = useRouter();
+  // const router = useRouter();
   function postFunction(delta: any) {
     console.log(title);
     console.log(content);
@@ -33,6 +33,7 @@ const NewPostbyQuill: NextPageWithLayout<any> = () => {
       // .then((res) => console.log(res))
       .then((res) => alert(res));
     // router.push("/community/1");//!라우팅은 되지만 리로드가 안되어서 최신 데이터가 안옴
+    window.location.href = "/community/1"; //! 이 방식으로 하면 게시 성공 후 리로드 가능
   }
   useEffect(() => {
     //quillRef.current 할당
